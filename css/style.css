@@ -1,0 +1,73 @@
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#071E2E;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:#1AB1E7;color:#fff}
+a{text-decoration:none;color:#0E93C7}
+a:hover{color:#1AB1E7}
+
+/* ---- language switching: one language's [data-l] spans show at a time ---- */
+[data-l="en"],[data-l="zh"],[data-l="ja"]{display:none}
+[data-lang="en"] [data-l="th"],[data-lang="zh"] [data-l="th"],[data-lang="ja"] [data-l="th"]{display:none}
+[data-lang="en"] [data-l="en"]{display:inline}
+[data-lang="zh"] [data-l="zh"]{display:inline}
+[data-lang="ja"] [data-l="ja"]{display:inline}
+[data-l="zh"]{font-family:'Noto Sans SC','Anuphan',sans-serif}
+[data-l="ja"]{font-family:'Noto Sans JP','Anuphan',sans-serif}
+
+[data-lang-check]{display:none}
+[data-lang="th"] [data-lang-check="th"],
+[data-lang="en"] [data-lang-check="en"],
+[data-lang="zh"] [data-lang-check="zh"],
+[data-lang="ja"] [data-lang-check="ja"]{display:inline-flex}
+
+/* ---- motion ---- */
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@keyframes ripple{0%{transform:translate(-50%,-50%) scale(.55);opacity:.55}100%{transform:translate(-50%,-50%) scale(1.7);opacity:0}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes marqueeX{to{transform:translateX(-50%)}}
+@keyframes pulseDot{0%,100%{opacity:1}50%{opacity:.35}}
+[data-reveal]{opacity:0}
+[data-reveal].in{animation:fadeUp .8s cubic-bezier(.16,.84,.44,1) forwards}
+[data-motion="off"] [data-reveal]{opacity:1;animation:none}
+[data-motion="off"] [data-ripple],[data-motion="off"] [data-float]{animation:none !important}
+
+input:focus,textarea:focus,select:focus{outline:2px solid var(--accent,#1AB1E7);outline-offset:1px}
+
+/* ---- nav responsive ---- */
+[data-navlinks]{display:flex}
+[data-menubtn]{display:none}
+/* grid items default to a min-width based on their content's min-content size;
+   long unspaced Thai/CJK runs can push that past the viewport and force the
+   whole track wider than intended. Letting items shrink below their content
+   size restores normal text wrapping inside grid columns. */
+[data-hero]>*,[data-2col]>*{min-width:0}
+@media(max-width:1020px){
+  [data-navlinks]{display:none}
+  [data-menubtn]{display:inline-flex}
+  [data-navcta]{display:none}
+  [data-hero]{grid-template-columns:1fr !important;gap:48px !important}
+  [data-2col]{grid-template-columns:1fr !important}
+}
+@media(max-width:640px){
+  [data-sec]{padding-left:20px !important;padding-right:20px !important}
+}
+
+/* ---- toggled panels ---- */
+#lang-menu[hidden],
+#mobile-menu[hidden],
+#quote-success[hidden]{display:none}
+/* lightbox has an inline display:flex (to center its content when open),
+   which always outranks a plain stylesheet rule - !important is required
+   to actually hide it while [hidden] is set. */
+#lightbox[hidden]{display:none !important}
+
+/* ---- image placeholders (swap for real photos when available) ---- */
+.img-ph{position:relative;overflow:hidden;color:#B9CFDC}
+.img-ph svg{opacity:.45}
+
+/* ---- client logo badges (text stand-in until real logos are supplied) ---- */
+.client-badge{
+  display:flex;align-items:center;justify-content:center;
+  height:96px;background:#fff;border:1px solid #E2ECF3;border-radius:16px;
+  font:600 14px/1.3 'Prompt',sans-serif;color:#41586A;text-align:center;padding:8px;
+}
