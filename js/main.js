@@ -80,6 +80,12 @@
     if (e.key === 'Escape' && !lightbox.hidden) closeLightbox();
   });
 
+  function toggleProcess(el) {
+    var card = el.closest('.process-card');
+    if (card) card.classList.toggle('open');
+  }
+
+  window.toggleProcess = toggleProcess;
   window.setLang = setLang;
   window.toggleLangMenu = toggleLangMenu;
   window.closeLangMenu = closeLangMenu;
