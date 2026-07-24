@@ -51,6 +51,11 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--accent,#1AB1E7);
 @media(max-width:767px){
   .clients-grid{grid-template-columns:repeat(3,1fr) !important}
 }
+/* desktop + tablet: lock the client logos to a 7-per-row (7x3) grid so the
+   auto-fit track can't drop to 6 columns and leave a ragged last row */
+@media(min-width:768px){
+  .clients-grid{grid-template-columns:repeat(7,1fr) !important}
+}
 @media(max-width:640px){
   [data-sec]{padding-left:20px !important;padding-right:20px !important;padding-top:64px !important;padding-bottom:64px !important}
   #home{padding-top:110px !important;padding-bottom:64px !important}
