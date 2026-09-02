@@ -1,0 +1,165 @@
+/* =========================================================================
+   Pettubtim — Global CSS for Elementor
+   Paste into: Elementor → Site Settings → Custom CSS  (loads on every page)
+   Then style widgets by typing the class name into the widget's
+   Advanced → CSS Classes field. Never re-type raw values in a section.
+   ========================================================================= */
+
+/* ---------- 1. Design tokens ---------- */
+:root{
+  --accent:#1AB1E7;
+  --accent-deep:#0E93C7;
+  --accent-light:#7FD9F7;
+  --ink:#050E18;
+  --navy:#071E2E;
+  --navy-soft:#0C3A54;
+  --text-dark:#0A1B28;
+  --text-muted:#41586A;
+  --on-navy:#AECBDC;
+  --on-navy-dim:#8FAEC2;
+  --surface:#FAFDFF;
+  --surface-alt:#F0F7FB;
+  --border:#E2ECF3;
+  --border-input:#D7E2EB;
+
+  --radius-pill:999px;
+  --radius-card:20px;
+  --radius-glass:30px;
+  --radius-field:12px;
+
+  --shadow-btn:0 16px 40px -12px rgba(26,177,231,.65);
+  --shadow-card:0 18px 44px -28px rgba(10,27,40,.35);
+  --shadow-glass:0 50px 100px -40px rgba(0,0,0,.7);
+  --shadow-nav:0 24px 60px -24px rgba(0,0,0,.65);
+
+  --font-head:'Prompt',sans-serif;
+  --font-body:'Anuphan',sans-serif;
+
+  --pad-section:130px 32px;
+  --pad-section-mobile:64px 20px;
+}
+
+/* ---------- 2. Keyframes (used by the utility classes below) ---------- */
+@keyframes ptt-fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@keyframes ptt-ripple{0%{transform:translate(-50%,-50%) scale(.55);opacity:.55}100%{transform:translate(-50%,-50%) scale(1.7);opacity:0}}
+@keyframes ptt-marquee{to{transform:translateX(-50%)}}
+@keyframes ptt-pulseDot{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes ptt-floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* ---------- 3. Reusable component classes ---------- */
+
+/* pill buttons — add .ptt-btn plus one modifier */
+.ptt-btn a,.ptt-btn .elementor-button{
+  border-radius:var(--radius-pill);padding:17px 32px;
+  font:600 16.5px/1 var(--font-body);transition:filter .2s,background .2s;
+}
+.ptt-btn:hover a,.ptt-btn:hover .elementor-button{filter:brightness(1.12)}
+.ptt-btn--primary a,.ptt-btn--primary .elementor-button{
+  background:var(--accent);color:#06202F;box-shadow:var(--shadow-btn);
+}
+.ptt-btn--ghost a,.ptt-btn--ghost .elementor-button{
+  background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.28);
+}
+.ptt-btn--ghost:hover a,.ptt-btn--ghost:hover .elementor-button{background:rgba(255,255,255,.12)}
+.ptt-btn--sm a,.ptt-btn--sm .elementor-button{padding:11px 20px;font-size:13.5px}
+
+/* cards */
+.ptt-card{
+  background:#fff;border:1px solid var(--border);border-radius:var(--radius-card);
+  box-shadow:var(--shadow-card);
+}
+.ptt-glass{
+  background:rgba(255,255,255,.055);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.15);border-radius:var(--radius-glass);
+  box-shadow:var(--shadow-glass);
+}
+
+/* section label above every H2 */
+.ptt-eyebrow{
+  font:600 13px/1 var(--font-body);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);
+}
+.ptt-eyebrow--on-dark{color:var(--accent-light)}
+
+/* gradient headline text */
+.ptt-gradient-text,.ptt-gradient-text *{
+  background:linear-gradient(92deg,var(--accent) 10%,#8FE4FF 90%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+
+/* big numbers (hero stats, 18.9, pack sizes) */
+.ptt-num{font:700 34px/1 var(--font-head);color:#fff}
+.ptt-num .unit,.ptt-num sup{color:var(--accent)}
+.ptt-num--xl{font-size:72px}
+
+/* client logo tile */
+.ptt-logo-tile{
+  display:flex;align-items:center;justify-content:center;height:96px;padding:16px;
+  background:#fff;border:1px solid var(--border);border-radius:16px;
+}
+.ptt-logo-tile img{max-width:100%;max-height:100%;object-fit:contain}
+
+/* scroll reveal — add to any section or widget */
+.ptt-reveal{opacity:0}
+.ptt-reveal.in-view,
+.elementor-editor-active .ptt-reveal{
+  animation:ptt-fadeUp .8s cubic-bezier(.16,.84,.44,1) forwards;
+}
+
+/* hero ripple rings — put three empty divs with this class behind the hero image */
+.ptt-ripple{
+  position:absolute;left:0;top:0;width:560px;height:560px;border-radius:50%;
+  border:1px solid rgba(127,217,247,.4);transform:translate(-50%,-50%);
+  animation:ptt-ripple 7s linear infinite;pointer-events:none;
+}
+.ptt-ripple:nth-child(2){border-color:rgba(127,217,247,.3);animation-delay:2.3s}
+.ptt-ripple:nth-child(3){border-color:rgba(127,217,247,.22);animation-delay:4.6s}
+.ptt-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--accent);
+  display:inline-block;animation:ptt-pulseDot 2.2s ease infinite;
+}
+
+/* marquee — wrapper .ptt-marquee, inner track .ptt-marquee__track with content duplicated 2x */
+.ptt-marquee{
+  overflow:hidden;background:var(--ink);padding:20px 0;
+  border-top:1px solid rgba(127,217,247,.14);border-bottom:1px solid rgba(127,217,247,.14);
+}
+.ptt-marquee__track{
+  display:flex;width:max-content;gap:28px;white-space:nowrap;
+  animation:ptt-marquee 38s linear infinite;
+}
+
+/* form fields */
+.ptt-form input,.ptt-form textarea,.ptt-form select{
+  border:1.5px solid var(--border-input)!important;border-radius:var(--radius-field)!important;
+  padding:13px 14px!important;font:400 15px/1.2 var(--font-body)!important;color:var(--text-dark)!important;
+}
+.ptt-form input:focus,.ptt-form textarea:focus,.ptt-form select:focus{
+  outline:2px solid var(--accent);outline-offset:1px;
+}
+
+/* ---------- 4. Layout safety nets ---------- */
+/* long unbroken Thai/CJK runs otherwise force grid tracks past the viewport */
+.e-con>.e-con-inner>*,.elementor-widget-container{min-width:0}
+html{scroll-behavior:smooth}
+[id]{scroll-margin-top:90px}
+
+/* ---------- 5. Responsive ---------- */
+@media(max-width:1020px){
+  .ptt-hide-tablet{display:none!important}
+}
+@media(max-width:640px){
+  .ptt-section{padding:var(--pad-section-mobile)!important}
+  .ptt-num{font-size:24px}
+  .ptt-num--xl{font-size:48px}
+  .ptt-logo-tile{height:72px;padding:10px}
+  /* keep the three hero stats on one row */
+  .ptt-stats{display:flex!important;flex-wrap:nowrap!important;gap:14px!important}
+  .ptt-stats>*{flex:1 1 0;min-width:0}
+}
+
+/* ---------- 6. Accessibility ---------- */
+@media(prefers-reduced-motion:reduce){
+  .ptt-reveal,.ptt-ripple,.ptt-marquee__track,.ptt-dot{animation:none!important;opacity:1!important}
+  html{scroll-behavior:auto}
+}

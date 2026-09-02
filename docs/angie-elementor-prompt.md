@@ -11,6 +11,7 @@
 - ปลั๊กอินแปลภาษา: Polylang (หรือ WPML) เปิดใช้ th / en / zh / ja โดย **th เป็นภาษาหลัก**
 - อัปโหลดรูปจากโฟลเดอร์ `assets/` เข้า Media Library ให้ครบก่อน (ชื่อไฟล์เดิม)
 - ฟอนต์: ติดตั้ง Google Fonts — Prompt, Anuphan, Noto Sans SC, Noto Sans JP
+- วาง `docs/angie-global.css` ลงใน Site Settings → Custom CSS ก่อนเริ่ม (ดู §0.5)
 
 ---
 
@@ -76,6 +77,57 @@ Global Fonts:
 ยังไม่ต้องสร้างอะไรตอนนี้ — ตอบรับว่าเข้าใจ design system แล้ว
 แล้วรอผมส่ง section ถัดไป
 ```
+
+---
+
+## §0.5 · GLOBAL CSS (ส่งต่อจาก §0 ทันที — ทำครั้งเดียว ใช้ซ้ำทั้งไซต์)
+
+ก่อนสั่ง section ใด ๆ ให้เปิด **Elementor → Site Settings → Custom CSS**
+แล้ววางเนื้อหาไฟล์ [`angie-global.css`](./angie-global.css) ลงไปทั้งไฟล์ (ทำเองด้วยมือ เร็วและแม่นกว่าให้ Angie พิมพ์)
+
+ไฟล์นั้นให้ 3 อย่างที่ใช้ซ้ำได้:
+1. **CSS custom properties** — `--accent`, `--navy`, `--radius-pill`, `--shadow-btn` ฯลฯ
+   แก้สีแบรนด์ทีเดียวที่ `:root` เปลี่ยนทั้งเว็บ
+2. **Utility classes** — พิมพ์ชื่อคลาสลงช่อง Advanced → CSS Classes ของ widget แทนการตั้งค่าซ้ำทีละอัน
+3. **Keyframes + responsive + reduced-motion** — เขียนครั้งเดียวจบ
+
+จากนั้นส่ง prompt นี้ให้ Angie:
+
+```
+ผมได้ใส่ CSS กลางไว้ใน Site Settings → Custom CSS แล้ว
+ต่อไปนี้ **ห้ามพิมพ์ค่าดิบซ้ำ** (สี hex, radius, เงา, ฟอนต์) ในแต่ละ section
+ให้ใส่ชื่อคลาสในช่อง Advanced → CSS Classes ของ widget แทน ตามตารางนี้:
+
+  .ptt-section                section ทุกอัน (คุม padding บนมือถือ)
+  .ptt-btn .ptt-btn--primary  ปุ่มหลัก (พื้นฟ้า)
+  .ptt-btn .ptt-btn--ghost    ปุ่มรอง (โปร่ง ขอบขาว)
+  .ptt-btn--sm                ปุ่มเล็กใน navbar
+  .ptt-card                   การ์ดพื้นสว่าง (about, ใบรับรอง, ติดต่อ, ฟอร์ม)
+  .ptt-glass                  การ์ดโปร่งบนพื้นเข้ม (hero, สินค้า)
+  .ptt-eyebrow                ข้อความ eyebrow เหนือ H2
+  .ptt-eyebrow--on-dark       eyebrow บนพื้นเข้ม
+  .ptt-gradient-text          บรรทัด H1 ที่เป็น gradient
+  .ptt-num / .ptt-num--xl     ตัวเลขใหญ่ (สถิติ hero, 18.9, ขนาดบรรจุ)
+  .ptt-stats                  แถวสถิติ 3 ช่องใน hero
+  .ptt-logo-tile              ช่องโลโก้ลูกค้า
+  .ptt-reveal                 อะไรก็ตามที่ต้อง fade up ตอน scroll
+  .ptt-ripple / .ptt-dot      วงคลื่นใน hero / จุดกะพริบใน badge
+  .ptt-marquee / .ptt-marquee__track   แถบข้อความวิ่ง
+  .ptt-form                   Form widget ขอใบเสนอราคา
+
+ถ้าต้องใช้สี ให้อ้างเป็นตัวแปร เช่น var(--accent) ไม่ใช่ #1AB1E7
+ถ้าต้องการสไตล์ใหม่ที่ยังไม่มีคลาส ให้บอกผมก่อน ผมจะเพิ่มลง CSS กลางเอง
+อย่าสร้าง custom CSS ซ้ำในระดับ widget
+```
+
+**หมายเหตุ:** `.ptt-reveal` ต้องมีสคริปต์ IntersectionObserver สั้น ๆ คอยเติมคลาส `.in-view`
+(ใส่ใน Elementor → Custom Code หรือ footer):
+```js
+new IntersectionObserver((es,o)=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in-view');o.unobserve(e.target)}
+}),{threshold:.15}).observe // ผูกกับทุก .ptt-reveal
+```
+หรือถ้าไม่อยากใช้ JS ให้ใช้ Motion Effects → Entrance Animation ของ Elementor แทน แล้วข้าม `.ptt-reveal` ไป
 
 ---
 

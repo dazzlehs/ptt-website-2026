@@ -15,6 +15,7 @@ Angie is far more accurate when instructed block by block — do not paste every
 - Translation plugin: Polylang (or WPML) with th / en / zh / ja, **th as the default language**
 - Upload every image from `assets/` into the Media Library first, keeping the original filenames
 - Fonts: install the Google Fonts Prompt, Anuphan, Noto Sans SC, Noto Sans JP
+- Paste `docs/angie-global.css` into Site Settings → Custom CSS before you start (see §0.5)
 
 ---
 
@@ -83,6 +84,59 @@ never stack multiple languages inside one block.
 
 Do not build anything yet. Confirm you have the design system, then wait for my next section.
 ```
+
+---
+
+## §0.5 · GLOBAL CSS (do this right after §0 — once, reused site-wide)
+
+Before prompting any section, open **Elementor → Site Settings → Custom CSS**
+and paste the whole of [`angie-global.css`](./angie-global.css) in by hand — faster and more
+accurate than having Angie retype it.
+
+That file gives you three reusable layers:
+1. **CSS custom properties** — `--accent`, `--navy`, `--radius-pill`, `--shadow-btn`, …
+   Change a brand colour once at `:root` and the whole site follows.
+2. **Utility classes** — type the class name into a widget's Advanced → CSS Classes field
+   instead of restyling every widget by hand.
+3. **Keyframes + responsive rules + reduced-motion** — written once, applied everywhere.
+
+Then send Angie this prompt:
+
+```
+I have installed a global stylesheet under Site Settings → Custom CSS.
+From now on, **do not re-type raw values** (hex colours, radii, shadows, fonts) in any section.
+Apply the class names below in each widget's Advanced → CSS Classes field instead:
+
+  .ptt-section                every section (controls mobile padding)
+  .ptt-btn .ptt-btn--primary  primary button (blue fill)
+  .ptt-btn .ptt-btn--ghost    secondary button (transparent, white border)
+  .ptt-btn--sm                small button in the navbar
+  .ptt-card                   cards on light backgrounds (about, certificates, contact, form)
+  .ptt-glass                  glass cards on dark backgrounds (hero, products)
+  .ptt-eyebrow                the small label above each H2
+  .ptt-eyebrow--on-dark       eyebrow on a dark background
+  .ptt-gradient-text          the gradient H1 line
+  .ptt-num / .ptt-num--xl     large numerals (hero stats, 18.9, pack sizes)
+  .ptt-stats                  the three-stat row in the hero
+  .ptt-logo-tile              client logo tile
+  .ptt-reveal                 anything that should fade up on scroll
+  .ptt-ripple / .ptt-dot      hero ripple rings / pulsing badge dot
+  .ptt-marquee / .ptt-marquee__track   the scrolling strip
+  .ptt-form                   the quote Form widget
+
+When you need a colour, reference the variable — var(--accent), not #1AB1E7.
+If you need a style that has no class yet, tell me and I will add it to the global CSS.
+Do not create duplicate custom CSS at widget level.
+```
+
+**Note:** `.ptt-reveal` needs a small IntersectionObserver to add the `.in-view` class
+(put it in Elementor → Custom Code, or the footer):
+```js
+new IntersectionObserver((es,o)=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in-view');o.unobserve(e.target)}
+}),{threshold:.15}).observe // bind to every .ptt-reveal
+```
+If you would rather avoid JS, use Elementor's Motion Effects → Entrance Animation and skip `.ptt-reveal`.
 
 ---
 
