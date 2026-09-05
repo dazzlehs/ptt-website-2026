@@ -318,3 +318,126 @@ html { scroll-behavior: smooth; }
 section[id] { scroll-margin-top: 100px; }
 ```
 > ใส่ CSS Class `ptt-nav` ให้ container ของแคปซูลก่อน (Advanced → CSS Classes)
+
+---
+
+# รอบที่ 3 — แก้ไอคอนลูกโลกใหญ่ล้นจอ
+
+อาการ: เมนูและโลโก้ขนาดถูกต้องแล้ว แต่ไอคอนลูกโลก (globe) ของปุ่มเปลี่ยนภาษา
+ระเบิดใหญ่จนล้นออกนอก header
+
+สาเหตุ: ไอคอนถูกวางเป็น SVG/Icon widget ที่ไม่ได้กำหนดขนาด จึงยืดตาม container
+(SVG ที่ไม่มี width/height จะกิน 100% ของพื้นที่พ่อ) — เป็นอาการเดียวกับโลโก้รอบก่อน
+
+## PROMPT แก้ไข — คัดลอกทั้งบล็อกนี้ไปวางใน Angie
+
+```text
+ไอคอนลูกโลก (globe) ในปุ่มเปลี่ยนภาษาบน header แสดงผลใหญ่ผิดปกติ ล้นออกนอกแถบเมนู
+ช่วยแก้ตามนี้ อย่าสร้าง header ใหม่ ให้แก้ของเดิมเท่านั้น
+
+[แก้ไอคอนลูกโลก]
+- กำหนดขนาดไอคอนลูกโลกเป็น 16x16 px พอดี (width: 16px; height: 16px)
+- ถ้าเป็น Icon widget ของ Elementor: ตั้ง Size = 16px และปิด/ล้างค่าขนาดที่ inherit มา
+- ถ้าเป็น inline SVG: ต้องมี width="16" height="16" และ viewBox="0 0 24 24" บนแท็ก <svg>
+  ห้ามปล่อยให้ SVG ไม่มี width/height เพราะมันจะยืดเต็มพื้นที่
+- ตั้ง flex: 0 0 auto ให้ไอคอน เพื่อไม่ให้ยืดตามคอลัมน์
+- สีเส้นไอคอนเป็นสีขาว (stroke: currentColor, stroke-width 2, fill: none)
+- ลูกศรลง (chevron) ข้างขวาของปุ่ม ให้ขนาด 11x11 px opacity 0.7
+
+[กฎกันปัญหาซ้ำ — บังคับใช้กับทุกไอคอนใน header]
+- ทุก SVG / ไอคอน ที่อยู่ใน header ต้องมีขนาดตายตัวเป็น px เสมอ
+  ห้ามใช้ width:100%, ห้ามใช้ auto, ห้ามปล่อยว่าง
+- ขนาดที่ถูกต้องของแต่ละไอคอน:
+  โลโก้ = สูง 30px
+  ไอคอนลูกโลก = 16x16px
+  ลูกศร chevron = 11x11px
+  ไอคอนแฮมเบอร์เกอร์ = 16x12px อยู่ในปุ่มวงกลม 38x38px
+- ทุก container ใน header ตั้ง align-items: center และ overflow ต้องไม่ล้น
+
+[ปุ่มเปลี่ยนภาษา — สเปกเต็ม]
+- ทรงแคปซูล พื้นหลังโปร่งใส ขอบ 1px solid rgba(255,255,255,0.25)
+  border-radius 999px, padding 8px 12px
+- ภายในเรียงแนวนอน gap 7px: [ไอคอนลูกโลก 16px] [ข้อความ "ไทย"] [chevron 11px]
+- ข้อความ: ฟอนต์ Prompt น้ำหนัก 600 ขนาด 13px สีขาว line-height 1
+- ความสูงรวมของปุ่มต้องไม่เกิน 34px
+- hover: ขอบเป็น rgba(255,255,255,0.5) พื้นหลัง rgba(255,255,255,0.06)
+
+[ผลลัพธ์ที่ต้องได้]
+- ไอคอนลูกโลกเล็กพอดีอยู่ในปุ่ม ความสูงแถบเมนูรวมยังอยู่ที่ประมาณ 60px เท่าเดิม
+- ไม่มี element ใดล้นออกนอกแคปซูล
+```
+
+## CSS สำรอง (ใส่เองได้เลย ได้ผลแน่นอนกว่า)
+Elementor → Site Settings → Custom CSS
+
+```css
+/* บังคับขนาดไอคอนทุกตัวใน header ห้ามยืด */
+.ptt-nav svg,
+.ptt-nav i,
+.ptt-nav .elementor-icon svg {
+  flex: 0 0 auto !important;
+  max-width: none !important;
+  max-height: none !important;
+}
+
+/* ไอคอนลูกโลก */
+.ptt-nav .ptt-lang svg:first-of-type {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+/* ลูกศร chevron */
+.ptt-nav .ptt-lang svg:last-of-type {
+  width: 11px !important;
+  height: 11px !important;
+  opacity: .7;
+}
+
+/* ปุ่มเปลี่ยนภาษา */
+.ptt-nav .ptt-lang {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px !important;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 999px;
+  background: transparent;
+  color: #fff;
+  font: 600 13px/1 'Prompt', sans-serif;
+  max-height: 34px;
+}
+.ptt-nav .ptt-lang:hover {
+  border-color: rgba(255,255,255,.5);
+  background: rgba(255,255,255,.06);
+}
+
+/* กันทุก element ล้นแคปซูล */
+.ptt-nav, .ptt-nav * { min-width: 0; }
+.ptt-nav { overflow: visible; align-items: center; }
+```
+> ต้องใส่ CSS Class `ptt-nav` ที่ container ของแคปซูล และ `ptt-lang` ที่ปุ่มเปลี่ยนภาษา
+> (Advanced → CSS Classes ของแต่ละ element)
+
+## ถ้าจะข้ามปัญหาไปเลย — ใช้ HTML widget ทั้งปุ่ม
+ลบปุ่มภาษาเดิมออก แล้ววาง **HTML widget** ตรงนั้นแทน โค้ดนี้คุมขนาดเองครบ ไม่พึ่ง Elementor:
+
+```html
+<button type="button" aria-label="Change language / เปลี่ยนภาษา"
+  style="cursor:pointer;display:inline-flex;align-items:center;gap:7px;background:transparent;
+         border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:8px 12px;
+         font:600 13px/1 'Prompt',sans-serif;color:#fff;letter-spacing:.03em">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+       style="flex:0 0 auto">
+    <circle cx="12" cy="12" r="10"></circle>
+    <path d="M2 12h20"></path>
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+  </svg>
+  <span>ไทย</span>
+  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"
+       style="opacity:.7;flex:0 0 auto">
+    <path d="m6 9 6 6 6-6"></path>
+  </svg>
+</button>
+```
