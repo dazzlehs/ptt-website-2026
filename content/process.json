@@ -1,0 +1,112 @@
+{
+  "01": {
+    "th": "กระบวนการผลิต",
+    "en": "Process",
+    "zh": "生产工艺",
+    "ja": "製造工程"
+  },
+  "02": {
+    "th": "6 ขั้นตอน สู่น้ำดื่มที่สะอาดปลอดภัย",
+    "en": "6 steps to safe, clean water",
+    "zh": "洁净安全饮用水的 6 道工序",
+    "ja": "安全でクリーンな水への6ステップ"
+  },
+  "items": [
+    {
+      "image": "process-1.jpg",
+      "alt": "เลือกแหล่งน้ำดิบ",
+      "title": {
+        "th": "เลือกแหล่งน้ำดิบ",
+        "en": "Raw water source",
+        "zh": "原水水源",
+        "ja": "原水の取水"
+      },
+      "desc": {
+        "th": "เราเลือกใช้น้ำประปาจากการประปาส่วนภูมิภาคมาเป็นน้ำดิบของเรา 100% น้ำประปานั้นมีการ กรองและฆ่าเชื้อมาในขั้นต้นแล้ว เมื่อนำมาผลิตน้ำดื่มจะทำให้น้ำมีรสชาติดี ไม่กระด้าง",
+        "en": "We use 100% Provincial Waterworks water as our raw source. As mains water is already pre-filtered and disinfected, it makes for great-tasting, non-hard drinking water.",
+        "zh": "我们 100% 采用地方自来水作为原水。自来水已经过初步过滤与消毒，用于生产饮用水口感更佳、水质不硬。",
+        "ja": "原水には地方水道の水を100%使用しています。水道水はあらかじめろ過・消毒されているため、飲料水にすると口当たりがよく、硬度も抑えられます。"
+      }
+    },
+    {
+      "image": "process-2.jpg",
+      "alt": "กรองขั้นต้น",
+      "title": {
+        "th": "กรองขั้นต้น",
+        "en": "Pre-filtration",
+        "zh": "初级过滤",
+        "ja": "前処理ろ過"
+      },
+      "desc": {
+        "th": "น้ำประปาที่เข้ามาในระบบจะไหลผ่านสารกรองทั้ง 3 ชนิด ได้แก่ AFM, Carbon, และ Resin เพื่อกำจัดสี ความขุ่น ความกระด้าง และสารแขวนลอยต่างๆ หลังกรองแล้ว น้ำจะมีความใส ไร้กลิ่น และเหมาะสมกับการนำไปกรองขั้นต่อไป",
+        "en": "Incoming mains water flows through three filter media — AFM, carbon and resin — to remove colour, turbidity, hardness and suspended matter. It emerges clear and odourless, ready for the next filtration stage.",
+        "zh": "进入系统的自来水会依次流过 AFM、活性炭和树脂三种滤料，去除色度、浊度、硬度及各种悬浮物。过滤后的水清澈无味，适合进入下一道过滤工序。",
+        "ja": "供給された水道水は AFM・活性炭・樹脂の3種類のろ材を通り、色度・濁り・硬度・浮遊物を除去します。ろ過後の水は透明で無臭となり、次のろ過工程に適した状態になります。"
+      }
+    },
+    {
+      "image": "process-3.jpg",
+      "alt": "กรอง RO 0.0001 ไมครอน",
+      "title": {
+        "th": "กรอง RO 0.0001 ไมครอน",
+        "en": "RO 0.0001 micron",
+        "zh": "RO 0.0001 微米",
+        "ja": "RO 0.0001ミクロン"
+      },
+      "desc": {
+        "th": "น้ำจะถูกไหลเข้าสู่เครื่องกรองรีเวิร์สออสโมซิส (RO) ที่มีความละเอียดของเยื่อเมมเบรนถึง 0.0001 ไมครอน ทำให้สามารถกรองสารละลายเจือปนต่างๆ แร่ธาตุ โลหะหนัก สารเคมี คลอรีน เชื้อโรค ไวรัส และแบคทีเรียต่างๆ&nbsp; น้ำที่ออกมาจึงมีบริสุทธิ์มาก",
+        "en": "The water then enters a reverse-osmosis (RO) system whose membrane is fine down to 0.0001 micron, removing dissolved impurities, minerals, heavy metals, chemicals, chlorine, germs, viruses and bacteria — leaving exceptionally pure water.",
+        "zh": "随后水进入反渗透（RO）系统，其膜精度可达 0.0001 微米，能滤除各种溶解杂质、矿物质、重金属、化学物质、氯、病菌、病毒与细菌，产出极其纯净的水。",
+        "ja": "続いて水は逆浸透（RO）システムへ送られます。膜の精度は0.0001ミクロンに達し、溶解不純物・ミネラル・重金属・化学物質・塩素・細菌・ウイルスなどを除去し、極めて純度の高い水になります。"
+      }
+    },
+    {
+      "image": "process-4.jpg",
+      "alt": "ฆ่าเชื้อด้วยแสง UV",
+      "title": {
+        "th": "ฆ่าเชื้อด้วยแสง UV",
+        "en": "UV sterilisation",
+        "zh": "紫外线杀菌",
+        "ja": "UV殺菌"
+      },
+      "desc": {
+        "th": "น้ำจะไหลผ่านหลอดแก้วที่มีแสงอัลตราไวโอเลต (UV) มีสามารถทำลายเซลล์เชื้อแบคทีเรียและไวรัสได้ถึง 99.99% หากสัมผัสที่ความเข้มข้นและเวลาที่มากพอ เพื่อเป็นการการันตีว่าจะไม่มีเชื้อโรคหลงเหลืออยู่ในน้ำก่อนถูกบรรจุ",
+        "en": "The water passes through a glass tube exposed to ultraviolet (UV) light, which destroys up to 99.99% of bacteria and virus cells at sufficient intensity and exposure time — ensuring no germs remain before bottling.",
+        "zh": "水会流经装有紫外线（UV）灯的石英管，在足够的强度与照射时间下可杀灭多达 99.99% 的细菌与病毒细胞，确保灌装前水中不残留病菌。",
+        "ja": "水は紫外線（UV）ランプを備えたガラス管を通過します。十分な強度と照射時間があれば細菌やウイルスの細胞を最大99.99%破壊し、充填前に病原菌が残らないことを保証します。"
+      }
+    },
+    {
+      "image": "process-5.jpg",
+      "alt": "ฆ่าเชื้อด้วยโอโซน",
+      "title": {
+        "th": "ฆ่าเชื้อด้วยโอโซน",
+        "en": "Ozone sterilisation",
+        "zh": "臭氧杀菌",
+        "ja": "オゾン殺菌"
+      },
+      "desc": {
+        "th": "เราจะมีการเติมน้ำโอโซน ซึ่งเป็นสารฆ่าเชื้อที่มีฤทธิ์ในการฆ่าเชื้อที่รุนแรงและเร็วกว่าคลอรีนถึง 3,125 เท่า และยังกำจัดกลิ่นและสารเคมีที่อาจยังตกค้างอยู่ในน้ำได้เป็นอย่างดี โอโซนนั้นสามารถสลายตัวไปเองในระยะเวลาไม่นาน จึงไม่ทิ้งพิษตกค้างไว้ในน้ำ",
+        "en": "We add ozonated water — a disinfectant up to 3,125 times stronger and faster than chlorine that also removes lingering odours and chemicals. Ozone breaks down by itself within a short time, so it leaves no toxic residue in the water.",
+        "zh": "我们会注入臭氧水，其杀菌力强且速度可达氯的 3,125 倍，并能有效去除水中残留的气味与化学物质。臭氧会在短时间内自行分解，因此不会在水中留下有毒残留。",
+        "ja": "オゾン水を注入します。オゾンは塩素の最大3,125倍強力かつ迅速な殺菌作用を持ち、水に残る臭いや化学物質もよく除去します。オゾンは短時間で自然分解するため、有害な残留物を水中に残しません。"
+      }
+    },
+    {
+      "image": "process-6.jpg",
+      "alt": "ล้างและบรรจุอัตโนมัติ",
+      "title": {
+        "th": "ล้าง &amp; บรรจุอัตโนมัติ",
+        "en": "Auto wash &amp; fill",
+        "zh": "自动清洗与灌装",
+        "ja": "自動洗浄・充填"
+      },
+      "desc": {
+        "th": "พาชนะที่นำมาบรรจุน้ำ จะถูกล้างทำความสะอาดด้วยน้ำสะอาดก่อนการบรรจุ เพื่อให้มั่นใจได้ว่าจะสามารถกำจัดสิ่งแปลกปลอมที่อยู่ในภาชนะได้จนหมด ซึ่งกระบวนการบรรจุทั้งหมดจะถูกทำงานผ่านเครื่องจักรอัตโนมัติ 100% เพื่อลดการปนเปื้อนให้ได้มากที่สุด",
+        "en": "Every container is washed with clean water before filling to ensure all foreign matter is removed. The entire filling process runs on a 100% automated line to minimise contamination.",
+        "zh": "每个容器在灌装前都会用洁净水清洗，确保彻底清除容器内的异物。整个灌装过程由 100% 全自动机器完成，最大限度地减少污染。",
+        "ja": "充填前にすべての容器を清浄な水で洗浄し、容器内の異物を確実に除去します。充填工程はすべて100%自動化された機械で行われ、汚染を最小限に抑えます。"
+      }
+    }
+  ]
+}

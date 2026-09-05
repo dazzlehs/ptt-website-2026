@@ -1,0 +1,919 @@
+# Sveltia CMS — the editing UI served at /admin.
+# Saving a page here commits to content/*.json on GitHub, which triggers the
+# Cloudflare build that regenerates the site. There is no server of our own.
+backend:
+  name: github
+  repo: dazzlehs/ptt-website-2026
+  branch: master
+  # "Sign In Using Access Token" works with no extra setup - paste a GitHub
+  # personal access token with repo scope. To get the nicer "Sign In with
+  # GitHub" button instead, deploy a sveltia-cms-auth Worker and uncomment:
+  # base_url: https://<your-auth-worker>.workers.dev
+
+# Used by the "local backend" during development (npx @sveltia/cms-proxy-server)
+local_backend: true
+
+media_folder: assets
+public_folder: assets
+publish_mode: simple
+
+collections:
+  - name: content
+    label: "เนื้อหาเว็บไซต์"
+    files:
+    - name: header
+      label: "เมนูด้านบน (Desktop)"
+      file: "content/header.json"
+      format: json
+      fields:
+        - name: "01"
+          label: "เกี่ยวกับเรา"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "02"
+          label: "สินค้า"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "03"
+          label: "การผลิต"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "04"
+          label: "มาตรฐาน"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "05"
+          label: "ติดต่อ"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "06"
+          label: "ขอใบเสนอราคา"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+    - name: menu
+      label: "เมนูมือถือ"
+      file: "content/menu.json"
+      format: json
+      fields:
+        - name: "01"
+          label: "เกี่ยวกับเรา"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "02"
+          label: "สินค้า / ขนาดบรรจุ"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "03"
+          label: "กระบวนการผลิต"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "04"
+          label: "มาตรฐาน"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "05"
+          label: "ลูกค้าของเรา"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "06"
+          label: "ติดต่อเรา"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "07"
+          label: "ขอใบเสนอราคา"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+    - name: home
+      label: "หน้าแรก / Hero"
+      file: "content/home.json"
+      format: json
+      fields:
+        - name: "01"
+          label: "ISO 22000:2018 · HACCP · GHPs"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "02"
+          label: "น้ำดื่มเพชรทับทิม สะอาด ปลอดภัย ผ่านมาตรฐา…"
+          widget: object
+          collapsed: true
+          hint: "มีแท็ก HTML อยู่ในข้อความ แก้เฉพาะตัวอักษร อย่าลบแท็ก"
+          fields:
+            - { name: th, label: "ไทย", widget: text, required: true }
+            - { name: en, label: "English", widget: text, required: true }
+            - { name: zh, label: "中文", widget: text, required: true }
+            - { name: ja, label: "日本語", widget: text, required: true }
+        - name: "03"
+          label: "น้ำดื่มเพชรทับทิม โดยบริษัท 4415 อินเตอร์ …"
+          widget: object
+          collapsed: true
+          hint: "มีแท็ก HTML อยู่ในข้อความ แก้เฉพาะตัวอักษร อย่าลบแท็ก"
+          fields:
+            - { name: th, label: "ไทย", widget: text, required: true }
+            - { name: en, label: "English", widget: text, required: true }
+            - { name: zh, label: "中文", widget: text, required: true }
+            - { name: ja, label: "日本語", widget: text, required: true }
+        - name: "04"
+          label: "ขอใบเสนอราคาฟรี"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "05"
+          label: "ดูสินค้าทั้งหมด"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "06"
+          label: "ปีประสบการณ์"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "07"
+          label: "ลิตรต่อปี"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "08"
+          label: "ลูกค้าที่ใช้บริการ"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+    - name: marquee
+      label: "แถบข้อความวิ่ง"
+      file: "content/marquee.json"
+      format: json
+      fields:
+        - name: "01"
+          label: "ฆ่าเชื้อด้วย UV และ Ozone"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "02"
+          label: "ลูกค้าใช้บริการมากกว่า 500 ราย"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "03"
+          label: "พร้อมให้บริการลูกค้าโรงงานทุกขนาด"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "04"
+          label: "ผลิตมากกว่า 20+ ล้านลิตรต่อปี"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "05"
+          label: "ฆ่าเชื้อด้วย UV และ Ozone"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "06"
+          label: "ลูกค้าใช้บริการมากกว่า 500 ราย"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "07"
+          label: "พร้อมให้บริการลูกค้าโรงงานทุกขนาด"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "08"
+          label: "ผลิตมากกว่า 20+ ล้านลิตรต่อปี"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+    - name: about
+      label: "เกี่ยวกับเรา"
+      file: "content/about.json"
+      format: json
+      fields:
+        - name: "01"
+          label: "เกี่ยวกับเรา"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "02"
+          label: "กว่า 30 ปี ที่โรงงานชั้นนำ ไว้วางใจน้ำดื่ม…"
+          widget: object
+          collapsed: true
+          hint: "มีแท็ก HTML อยู่ในข้อความ แก้เฉพาะตัวอักษร อย่าลบแท็ก"
+          fields:
+            - { name: th, label: "ไทย", widget: text, required: true }
+            - { name: en, label: "English", widget: text, required: true }
+            - { name: zh, label: "中文", widget: text, required: true }
+            - { name: ja, label: "日本語", widget: text, required: true }
+        - name: "03"
+          label: "บริษัท 4415 อินเตอร์ กรุ๊ป จำกัด ก่อตั้งเม…"
+          widget: object
+          collapsed: true
+          hint: "มีแท็ก HTML อยู่ในข้อความ แก้เฉพาะตัวอักษร อย่าลบแท็ก"
+          fields:
+            - { name: th, label: "ไทย", widget: text, required: true }
+            - { name: en, label: "English", widget: text, required: true }
+            - { name: zh, label: "中文", widget: text, required: true }
+            - { name: ja, label: "日本語", widget: text, required: true }
+        - name: "04"
+          label: "ประสบการณ์กว่า 30 ปี"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "05"
+          label: "ก่อตั้งตั้งแต่ปี พ.ศ. 2536"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "06"
+          label: "ผลิต 20+ ล้านลิตร/ปี"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "07"
+          label: "ครอบคลุมฉะเชิงเทรา ชลบุรี สมุทรปราการ"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+    - name: products
+      label: "สินค้า"
+      file: "content/products.json"
+      format: json
+      fields:
+        - name: "01"
+          label: "สินค้า"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "02"
+          label: "น้ำดื่มบรรจุถัง 18.9 ลิตร"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: text, required: true }
+            - { name: en, label: "English", widget: text, required: true }
+            - { name: zh, label: "中文", widget: text, required: true }
+            - { name: ja, label: "日本語", widget: text, required: true }
+        - name: "03"
+          label: "พร้อมขนาดบรรจุอื่นครบทุกความต้องการ และรับ…"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "04"
+          label: "สินค้าหลักของเรา"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "05"
+          label: "บรรจุในถังโพลีคาร์บอเนต ใช้งานได้ทั้งแบบเท…"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: text, required: true }
+            - { name: en, label: "English", widget: text, required: true }
+            - { name: zh, label: "中文", widget: text, required: true }
+            - { name: ja, label: "日本語", widget: text, required: true }
+        - name: "06"
+          label: "ขนาดที่โรงงานอุตสาหกรรมเลือกใช้มากที่สุด ค…"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: text, required: true }
+            - { name: en, label: "English", widget: text, required: true }
+            - { name: zh, label: "中文", widget: text, required: true }
+            - { name: ja, label: "日本語", widget: text, required: true }
+        - name: "07"
+          label: "ถังโพลีคาร์บอเนตใส แข็งแรง ทนทาน นำกลับมาใ…"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "08"
+          label: "ฝากดใช้ครั้งเดียว ปิดผนึกทุกถัง มั่นใจความ…"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "09"
+          label: "ราคาพิเศษสำหรับลูกค้าโรงงาน ไม่ต้องมัดจำถั…"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "10"
+          label: "ขอใบเสนอราคาถัง 18.9L"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: sizes
+          label: "ขนาดบรรจุ"
+          label_singular: "ขนาด"
+          widget: list
+          collapsed: true
+          summary: "{{fields.volume}} {{fields.unit}}"
+          fields:
+          - { name: volume, label: "ปริมาตร (ตัวเลข)", widget: string, required: true }
+          - { name: unit, label: "หน่วย", widget: string, required: true }
+          - name: "name"
+            label: "ชื่อ"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: th, label: "ไทย", widget: string, required: true }
+              - { name: en, label: "English", widget: string, required: true }
+              - { name: zh, label: "中文", widget: string, required: true }
+              - { name: ja, label: "日本語", widget: string, required: true }
+          - name: "pack"
+            label: "รายละเอียดการบรรจุ"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: th, label: "ไทย", widget: string, required: true }
+              - { name: en, label: "English", widget: string, required: true }
+              - { name: zh, label: "中文", widget: string, required: true }
+              - { name: ja, label: "日本語", widget: string, required: true }
+    - name: process
+      label: "กระบวนการผลิต"
+      file: "content/process.json"
+      format: json
+      fields:
+        - name: "01"
+          label: "กระบวนการผลิต"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "02"
+          label: "6 ขั้นตอน สู่น้ำดื่มที่สะอาดปลอดภัย"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: items
+          label: "ขั้นตอนการผลิต"
+          label_singular: "ขั้นตอน"
+          widget: list
+          collapsed: true
+          summary: "{{fields.title.th}}"
+          fields:
+          - { name: image, label: "รูปภาพ", widget: image, media_folder: "/assets", public_folder: "assets", required: true }
+          - { name: alt, label: "คำอธิบายรูป (สำหรับ SEO / screen reader)", widget: string, required: true }
+          - name: "title"
+            label: "หัวข้อ"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: th, label: "ไทย", widget: string, required: true }
+              - { name: en, label: "English", widget: string, required: true }
+              - { name: zh, label: "中文", widget: string, required: true }
+              - { name: ja, label: "日本語", widget: string, required: true }
+          - name: "desc"
+            label: "คำอธิบาย"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: th, label: "ไทย", widget: text, required: true }
+              - { name: en, label: "English", widget: text, required: true }
+              - { name: zh, label: "中文", widget: text, required: true }
+              - { name: ja, label: "日本語", widget: text, required: true }
+    - name: standards
+      label: "มาตรฐาน & ใบรับรอง"
+      file: "content/standards.json"
+      format: json
+      fields:
+        - name: "01"
+          label: "มาตรฐาน & ใบรับรอง"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "02"
+          label: "คุณภาพที่พิสูจน์ได้ด้วยใบรับรอง"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "03"
+          label: "เอกสารรับรองฉบับจริง"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "04"
+          label: "คลิกที่รูปเพื่อขยายดูรายละเอียด"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: items
+          label: "ใบรับรอง"
+          label_singular: "ใบรับรอง"
+          widget: list
+          collapsed: true
+          summary: "{{fields.name}}"
+          fields:
+          - { name: image, label: "รูปภาพ", widget: image, media_folder: "/assets", public_folder: "assets", required: true }
+          - { name: alt, label: "คำอธิบายรูป (สำหรับ SEO / screen reader)", widget: string, required: true }
+          - { name: name, label: "ชื่อ", widget: string, required: true }
+          - name: "note"
+            label: "คำอธิบายใต้ใบรับรอง"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: th, label: "ไทย", widget: string, required: true }
+              - { name: en, label: "English", widget: string, required: true }
+              - { name: zh, label: "中文", widget: string, required: true }
+              - { name: ja, label: "日本語", widget: string, required: true }
+    - name: clients
+      label: "ลูกค้าของเรา"
+      file: "content/clients.json"
+      format: json
+      fields:
+        - name: "01"
+          label: "ลูกค้าของเรา"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "02"
+          label: "บริษัทชั้นนำที่ไว้วางใจเรา"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: items
+          label: "โลโก้ลูกค้า"
+          label_singular: "ลูกค้า"
+          widget: list
+          collapsed: true
+          summary: "{{fields.name}}"
+          fields:
+          - { name: logo, label: "ไฟล์โลโก้", widget: image, media_folder: "/assets", public_folder: "assets", required: true }
+          - { name: name, label: "ชื่อ", widget: string, required: true }
+          - { name: size, label: "ขนาดโลโก้บนการ์ด", widget: select, default: "default", options: ["default", "large", "small"] }
+    - name: quote
+      label: "ฟอร์มขอใบเสนอราคา"
+      file: "content/quote.json"
+      format: json
+      fields:
+        - name: "01"
+          label: "ขอใบเสนอราคา"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "02"
+          label: "รับใบเสนอราคา ภายใน 24 ชั่วโมง"
+          widget: object
+          collapsed: true
+          hint: "มีแท็ก HTML อยู่ในข้อความ แก้เฉพาะตัวอักษร อย่าลบแท็ก"
+          fields:
+            - { name: th, label: "ไทย", widget: text, required: true }
+            - { name: en, label: "English", widget: text, required: true }
+            - { name: zh, label: "中文", widget: text, required: true }
+            - { name: ja, label: "日本語", widget: text, required: true }
+        - name: "03"
+          label: "กรอกข้อมูลด้านขวา ทีมงานจะติดต่อกลับพร้อมร…"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: text, required: true }
+            - { name: en, label: "English", widget: text, required: true }
+            - { name: zh, label: "中文", widget: text, required: true }
+            - { name: ja, label: "日本語", widget: text, required: true }
+        - name: "04"
+          label: "ส่งคำขอเรียบร้อยแล้ว!"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "05"
+          label: "ขอบคุณครับ ทีมงานเพชรทับทิมจะติดต่อกลับพร้…"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "06"
+          label: "ส่งคำขอใหม่อีกครั้ง"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "07"
+          label: "ชื่อบริษัท / โรงงาน *"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "08"
+          label: "ชื่อผู้ติดต่อ *"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "09"
+          label: "เบอร์โทรศัพท์ *"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "10"
+          label: "อีเมล"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "11"
+          label: "สินค้าที่สนใจ"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "12"
+          label: "ปริมาณต่อเดือน (โดยประมาณ)"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "13"
+          label: "ที่อยู่จัดส่ง"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "14"
+          label: "ส่งคำขอใบเสนอราคา"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "15"
+          label: "ส่งไม่สำเร็จ กรุณาลองใหม่อีกครั้ง หรือติดต…"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: text, required: true }
+            - { name: en, label: "English", widget: text, required: true }
+            - { name: zh, label: "中文", widget: text, required: true }
+            - { name: ja, label: "日本語", widget: text, required: true }
+        - name: "16"
+          label: "ข้อมูลของคุณจะถูกเก็บเป็นความลับ ใช้เพื่อก…"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+    - name: contact
+      label: "ติดต่อเรา"
+      file: "content/contact.json"
+      format: json
+      fields:
+        - name: "01"
+          label: "ติดต่อเรา"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "02"
+          label: "เราพร้อมให้บริการท่าน"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "03"
+          label: "ที่อยู่"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "04"
+          label: "บริษัท 4415 อินเตอร์ กรุ๊ป จำกัด 134/3-4 ม…"
+          widget: object
+          collapsed: true
+          hint: "มีแท็ก HTML อยู่ในข้อความ แก้เฉพาะตัวอักษร อย่าลบแท็ก"
+          fields:
+            - { name: th, label: "ไทย", widget: text, required: true }
+            - { name: en, label: "English", widget: text, required: true }
+            - { name: zh, label: "中文", widget: text, required: true }
+            - { name: ja, label: "日本語", widget: text, required: true }
+        - name: "05"
+          label: "เวลาทำการ"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "06"
+          label: "วันจันทร์ - วันเสาร์ เวลา 07:30 - 16:30 น."
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "07"
+          label: "โทรศัพท์"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "08"
+          label: "อีเมล / LINE"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "09"
+          label: "ขอใบเสนอราคา"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "10"
+          label: "เปิดใน Google Maps →"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+    - name: footer
+      label: "ส่วนท้ายเว็บ"
+      file: "content/footer.json"
+      format: json
+      fields:
+        - name: "01"
+          label: "ติดต่อ"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "02"
+          label: "โทรศัพท์:"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "03"
+          label: "เพิ่มเพื่อน LINE"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
