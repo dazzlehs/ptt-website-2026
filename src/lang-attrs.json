@@ -1,0 +1,58 @@
+{
+  "home.02": {
+    "seps": [
+      "\n          ",
+      "",
+      ""
+    ]
+  },
+  "home.03": {
+    "seps": [
+      "\n          ",
+      "",
+      ""
+    ]
+  },
+  "about.03": {
+    "seps": [
+      "\n          ",
+      "",
+      ""
+    ]
+  },
+  "products.01": {
+    "attrs": {
+      "th": "style=\"text-align: center; font-size: 16px\""
+    }
+  },
+  "process.01": {
+    "attrs": {
+      "th": "style=\"font-size: 16px\""
+    }
+  },
+  "standards.01": {
+    "attrs": {
+      "th": "style=\"font-size: 16px\""
+    }
+  },
+  "standards.02": {
+    "attrs": {
+      "th": "style=\"padding-bottom: 0px\""
+    }
+  },
+  "standards.03": {
+    "attrs": {
+      "th": "style=\"padding-top: 0px\""
+    }
+  },
+  "clients.01": {
+    "attrs": {
+      "th": "style=\"font-size: 16px\""
+    }
+  },
+  "contact.01": {
+    "attrs": {
+      "th": "style=\"font-size: 16px\""
+    }
+  }
+}

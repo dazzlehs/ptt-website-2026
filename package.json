@@ -1,0 +1,15 @@
+{
+  "name": "ptt-website-2026",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs && node --run serve",
+    "serve": "python3 -m http.server 8420 --directory dist",
+    "cms": "sveltia-cms-proxy-server"
+  },
+  "devDependencies": {
+    "@sveltia/cms": "0.205.4",
+    "wrangler": "4.129.0"
+  }
+}

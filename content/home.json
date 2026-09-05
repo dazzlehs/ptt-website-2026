@@ -1,0 +1,50 @@
+{
+  "01": {
+    "th": "ISO 22000:2018 · HACCP · GHPs",
+    "en": "ISO 22000:2018 · HACCP · GHPs",
+    "zh": "ISO 22000:2018 · HACCP · GHPs",
+    "ja": "ISO 22000:2018 · HACCP · GHPs"
+  },
+  "02": {
+    "th": "น้ำดื่มเพชรทับทิม<br><span style=\"background-clip: text; color: transparent; overflow: visible; background-color: #1AB1E7\">สะอาด ปลอดภัย<br>ผ่านมาตรฐานสากล</span><br>",
+    "en": "Pettubtim drinking water,<br><span style=\"background:linear-gradient(92deg,var(--accent,#1AB1E7) 10%,#8FE4FF 90%);-webkit-background-clip:text;background-clip:text;color:transparent\">clean and safe,</span><br>certified to global standards",
+    "zh": "Pettubtim 饮用水，<br><span style=\"background:linear-gradient(92deg,var(--accent,#1AB1E7) 10%,#8FE4FF 90%);-webkit-background-clip:text;background-clip:text;color:transparent\">洁净 · 安全</span><br>符合国际标准",
+    "ja": "Pettubtim の飲料水、<br><span style=\"background:linear-gradient(92deg,var(--accent,#1AB1E7) 10%,#8FE4FF 90%);-webkit-background-clip:text;background-clip:text;color:transparent\">清潔・安全</span><br>国際基準に適合"
+  },
+  "03": {
+    "th": "น้ำดื่มเพชรทับทิม โดยบริษัท 4415 อินเตอร์ กรุ๊ป จำกัด ผลิตกว่า 20 ล้านลิตรต่อปี กรองละเอียดด้วยระบบ RO ฆ่าเชื้อด้วย UV และ Ozone <br>ส่งตรงถึงบ้าน สำนักงาน โรงงานอุตสาหกรรม ในเขตพื้นที่จังหวัดฉะเชิงเทรา ชลบุรี และสมุทรปราการ",
+    "en": "Pettubtim brand water by 4415 Inter Group Co., Ltd. — over 20 million litres a year, finely filtered by an RO system and sterilised with UV and ozone, delivered to homes, offices and factories across Chachoengsao, Chonburi and Samut Prakan.",
+    "zh": "Pettubtim 品牌饮用水，由 4415 Inter Group 有限公司出品 —— 年产超 2000 万升，采用 RO 系统精细过滤并以 UV 和臭氧杀菌，配送至北柳、春武里及北榄府各地的住宅、办公室与工厂。",
+    "ja": "Pettubtim ブランドの飲料水（4415 Inter Group Co., Ltd. 製）—— 年間2000万リットル以上を生産し、ROシステムで精密ろ過し UV とオゾンで殺菌。チャチューンサオ・チョンブリ・サムットプラカンの住宅・オフィス・工場へお届けします。"
+  },
+  "04": {
+    "th": "ขอใบเสนอราคาฟรี",
+    "en": "Get a free quote",
+    "zh": "免费索取报价",
+    "ja": "無料でお見積り"
+  },
+  "05": {
+    "th": "ดูสินค้าทั้งหมด",
+    "en": "See products",
+    "zh": "查看产品",
+    "ja": "製品を見る"
+  },
+  "06": {
+    "th": "ปีประสบการณ์",
+    "en": "years' experience",
+    "zh": "年经验",
+    "ja": "年の実績"
+  },
+  "07": {
+    "th": "ลิตรต่อปี",
+    "en": "litres a year",
+    "zh": "升／年",
+    "ja": "リットル／年"
+  },
+  "08": {
+    "th": "ลูกค้าที่ใช้บริการ",
+    "en": "customers served",
+    "zh": "位客户",
+    "ja": "ご利用のお客様"
+  }
+}

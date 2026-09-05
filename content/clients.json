@@ -1,0 +1,121 @@
+{
+  "01": {
+    "th": "ลูกค้าของเรา",
+    "en": "Our clients",
+    "zh": "我们的客户",
+    "ja": "お客様"
+  },
+  "02": {
+    "th": "บริษัทชั้นนำที่ไว้วางใจเรา",
+    "en": "Leading companies trust us",
+    "zh": "领先企业的信赖之选",
+    "ja": "大手企業に選ばれています"
+  },
+  "items": [
+    {
+      "logo": "client-ptt.png",
+      "name": "PTT",
+      "size": "large"
+    },
+    {
+      "logo": "client-isuzu.png",
+      "name": "Isuzu",
+      "size": "default"
+    },
+    {
+      "logo": "client-ea.png",
+      "name": "Energy Absolute",
+      "size": "large"
+    },
+    {
+      "logo": "client-gulf.png",
+      "name": "Gulf",
+      "size": "default"
+    },
+    {
+      "logo": "client-idemitsu.png",
+      "name": "Idemitsu",
+      "size": "default"
+    },
+    {
+      "logo": "client-yazaki.png",
+      "name": "Yazaki",
+      "size": "default"
+    },
+    {
+      "logo": "client-honda.png",
+      "name": "Honda",
+      "size": "default"
+    },
+    {
+      "logo": "client-kubota.png",
+      "name": "Kubota",
+      "size": "default"
+    },
+    {
+      "logo": "client-jtekt.jpg",
+      "name": "JTEKT",
+      "size": "default"
+    },
+    {
+      "logo": "client-nutrix.svg",
+      "name": "Nutrix",
+      "size": "small"
+    },
+    {
+      "logo": "client-autoliv.png",
+      "name": "Autoliv",
+      "size": "default"
+    },
+    {
+      "logo": "client-ngk.png",
+      "name": "NGK",
+      "size": "default"
+    },
+    {
+      "logo": "client-unicharm.svg",
+      "name": "Unicharm",
+      "size": "default"
+    },
+    {
+      "logo": "client-isi.png",
+      "name": "iSi Automotive",
+      "size": "default"
+    },
+    {
+      "logo": "client-gpx.png",
+      "name": "GPX",
+      "size": "default"
+    },
+    {
+      "logo": "client-ctw.png",
+      "name": "CTW",
+      "size": "default"
+    },
+    {
+      "logo": "client-gs.png",
+      "name": "GS Battery",
+      "size": "default"
+    },
+    {
+      "logo": "client-unison.png",
+      "name": "Unison",
+      "size": "default"
+    },
+    {
+      "logo": "client-mine.png",
+      "name": "MINE Mobility",
+      "size": "large"
+    },
+    {
+      "logo": "client-sye.jpg",
+      "name": "SYE",
+      "size": "default"
+    },
+    {
+      "logo": "client-stem.gif",
+      "name": "STEM",
+      "size": "default"
+    }
+  ]
+}

@@ -5,8 +5,9 @@
   "observability": {
     "enabled": true
   },
+  // `npm run build` renders src/ + content/ into dist/; that folder is the site.
   "assets": {
-    "directory": "."
+    "directory": "dist"
   },
   "compatibility_flags": [
     "nodejs_compat"

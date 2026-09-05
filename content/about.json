@@ -1,0 +1,44 @@
+{
+  "01": {
+    "th": "เกี่ยวกับเรา",
+    "en": "About us",
+    "zh": "关于我们",
+    "ja": "会社について"
+  },
+  "02": {
+    "th": "กว่า 30 ปี ที่โรงงานชั้นนำ<br>ไว้วางใจน้ำดื่มของเรา",
+    "en": "30+ years of trust<br>from leading factories",
+    "zh": "30 多年来<br>领先工厂的信赖",
+    "ja": "30年以上にわたり<br>大手工場から信頼"
+  },
+  "03": {
+    "th": "<strong style=\"color: rgb(10, 27, 40);\">บริษัท 4415 อินเตอร์ กรุ๊ป จำกัด</strong> ก่อตั้งเมื่อเดือนมิถุนายน พ.ศ. 2536 โรงงานตั้งอยู่ที่ ต.เทพราช อ.บ้านโพธิ์ จ.ฉะเชิงเทรา ผู้ผลิตและจำหน่ายน้ำดื่มตรา “เพชรทับทิม” ปัจจุบันผลิตกว่า 20 ล้านลิตรต่อปี ส่งให้บ้านพัก สำนักงาน หน่วยงานราชการ และโรงงานอุตสาหกรรม",
+    "en": "<strong style=\"color:#0A1B28\">4415 Inter Group Co., Ltd.</strong> was founded in June 1993 in Ban Pho, Chachoengsao, as the producer and distributor of the “Pettubtim” drinking-water brand. Today we produce over 20 million litres a year for homes, offices, government agencies and factories.",
+    "zh": "<strong style=\"color:#0A1B28\">4415 Inter Group 有限公司</strong> 成立于 1993 年 6 月，厂址位于北柳府万博县，是「Pettubtim」品牌饮用水的生产与经销商。目前年产量超过 2000 万升，供应住宅、办公室、政府机构及工厂。",
+    "ja": "<strong style=\"color:#0A1B28\">4415 Inter Group Co., Ltd.</strong> は1993年6月にチャチューンサオ県バーンポー郡で創業した「Pettubtim」ブランド飲料水の製造・販売元です。現在は年間2000万リットル以上を生産し、住宅・オフィス・官公庁・工場へ供給しています。"
+  },
+  "04": {
+    "th": "ประสบการณ์กว่า 30 ปี",
+    "en": "30+ years' experience",
+    "zh": "30+ 年经验",
+    "ja": "30年以上の実績"
+  },
+  "05": {
+    "th": "ก่อตั้งตั้งแต่ปี พ.ศ. 2536",
+    "en": "Established since 1993",
+    "zh": "始创于1993年",
+    "ja": "1993年創業"
+  },
+  "06": {
+    "th": "ผลิต 20+ ล้านลิตร/ปี",
+    "en": "20M+ litres a year",
+    "zh": "年产 2000 万+升",
+    "ja": "年間2000万L以上"
+  },
+  "07": {
+    "th": "ครอบคลุมฉะเชิงเทรา ชลบุรี สมุทรปราการ",
+    "en": "Chachoengsao · Chonburi · Samut Prakan",
+    "zh": "北柳府 · 春武里府 · 北榄府",
+    "ja": "チャチューンサオ・チョンブリ・サムットプラカン"
+  }
+}

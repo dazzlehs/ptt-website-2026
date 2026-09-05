@@ -1,0 +1,61 @@
+{
+  "01": {
+    "th": "มาตรฐาน &amp; ใบรับรอง",
+    "en": "Standards",
+    "zh": "认证标准",
+    "ja": "品質基準"
+  },
+  "02": {
+    "th": "คุณภาพที่พิสูจน์ได้ด้วยใบรับรอง",
+    "en": "Quality backed by certification",
+    "zh": "以认证保障品质",
+    "ja": "認証で裏付けられた品質"
+  },
+  "03": {
+    "th": "เอกสารรับรองฉบับจริง",
+    "en": "The actual certificates",
+    "zh": "证书原件",
+    "ja": "認証書の原本"
+  },
+  "04": {
+    "th": "คลิกที่รูปเพื่อขยายดูรายละเอียด",
+    "en": "Click any image to zoom in",
+    "zh": "点击图片可放大查看详情",
+    "ja": "画像をクリックすると拡大表示できます"
+  },
+  "items": [
+    {
+      "image": "cert-iso.jpg",
+      "alt": "ใบรับรอง ISO 22000:2018",
+      "name": "ISO 22000:2018",
+      "note": {
+        "th": "มาตรฐานระบบการจัดการความปลอดภัยของอาหารระดับสากล",
+        "en": "International food-safety management system.",
+        "zh": "国际食品安全管理体系。",
+        "ja": "国際的な食品安全マネジメントシステム。"
+      }
+    },
+    {
+      "image": "cert-haccp.jpg",
+      "alt": "ใบรับรอง HACCP Codex",
+      "name": "HACCP Codex",
+      "note": {
+        "th": "ระบบวิเคราะห์และควบคุมจุดวิกฤตด้านความปลอดภัยอาหาร",
+        "en": "Hazard analysis and critical control points.",
+        "zh": "危害分析与关键控制点。",
+        "ja": "危害分析重要管理点（HACCP）。"
+      }
+    },
+    {
+      "image": "cert-ghps.jpg",
+      "alt": "ใบรับรอง GHPs Codex",
+      "name": "GHPs Codex",
+      "note": {
+        "th": "หลักปฏิบัติด้านสุขลักษณะที่ดีในการผลิตอาหาร",
+        "en": "Good Hygiene Practices in food production.",
+        "zh": "食品生产良好卫生规范。",
+        "ja": "食品製造における適正衛生規範。"
+      }
+    }
+  ]
+}
