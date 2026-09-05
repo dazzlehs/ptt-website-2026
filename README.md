@@ -38,9 +38,12 @@ npm run serve       # เปิด http://localhost:8420
 
 Cloudflare Workers ผูกกับ GitHub อยู่แล้ว — push ขึ้น `master` แล้วมันจะ
 
-1. `npm install`
-2. `npm run build` (ต้องตั้ง build command นี้ในหน้า Cloudflare Workers Builds)
-3. เสิร์ฟโฟลเดอร์ `dist/` ตาม `wrangler.jsonc`
+1. `npm clean-install`
+2. `npx wrangler versions upload` ซึ่งจะรัน `build.command` ใน `wrangler.jsonc`
+   (คือ `npm run build`) ให้เองก่อน upload
+3. เสิร์ฟโฟลเดอร์ `dist/` ตาม `assets.directory`
+
+ไม่ต้องตั้ง build command ในหน้า Cloudflare dashboard — `wrangler.jsonc` จัดการให้แล้ว
 
 ถ้า `content/*.json` มีข้อความภาษาใดภาษาหนึ่งหาย build จะ **fail พร้อมบอกว่า key ไหน**
 แทนที่จะ deploy หน้าที่พัง
