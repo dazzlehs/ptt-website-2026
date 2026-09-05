@@ -193,3 +193,128 @@ CONSTRAINTS
 - [ ] กดเมนูในมือถือแล้วแผงปิดเองก่อนเลื่อน
 - [ ] header ลอยอยู่ตลอด ไม่บังเนื้อหาสำคัญ และอ่านชัดบนพื้น hero สีเข้ม
 - [ ] ตัวเลือกภาษาเปลี่ยนภาษาได้ครบ 4 ภาษา (ถ้าใช้ระบบหลายภาษา)
+
+---
+
+# รอบที่ 2 — Prompt แก้เมนูที่ Angie สร้างมาแล้ว
+
+ปัญหาที่พบจากผลลัพธ์รอบแรก:
+1. โลโก้ใหญ่เกินมาก ล้นออกนอกแคปซูลและดันความสูงของ header
+2. ข้อความเมนูใส่ 2 ภาษาในปุ่มเดียว ("About / เกี่ยวกับเรา") ทำให้ตัดบรรทัดเป็น 3 บรรทัด
+3. ปุ่ม CTA เขียน "ขอใบเสนอราคา / Get a quote" ซ้อนกัน
+4. แคปซูลสูงเกิน สีเทาทึบ ไม่ใช่กระจกโปร่งสีน้ำเงินเข้ม
+5. เมนูไม่ชิดขวา / ไม่ได้ลอย fixed
+
+## PROMPT แก้ไข — คัดลอกทั้งบล็อกนี้ไปวางใน Angie
+
+```text
+ช่วยแก้ Header เมนูที่สร้างไว้ ให้ตรงตามสเปกด้านล่างนี้ อย่าสร้าง header ใหม่
+ให้แก้ของเดิม และห้ามแตะ section อื่นในหน้า
+
+[1. โลโก้ — เร่งด่วนที่สุด]
+- ตอนนี้โลโก้ใหญ่เกินไปมากจนล้นออกนอกแคปซูล
+- ตั้งความสูงโลโก้เป็น 30px พอดี (height: 30px, width: auto)
+- ปิด/ล้างค่า Max Width เดิม แล้วตั้ง max-height: 30px กับตัวรูปโดยตรง
+- ตั้งให้รูปเป็น display:block, object-fit: contain, ไม่ยืดตามคอลัมน์
+- คอลัมน์ที่ใส่โลโก้ให้เป็น flex: 0 0 auto (ไม่ยืด ไม่หด)
+- บนมือถือลดเหลือสูง 26px
+
+[2. ข้อความเมนู — ต้องมีภาษาเดียวเท่านั้น]
+- ตอนนี้เมนูเขียนสองภาษาในปุ่มเดียว เช่น "About / เกี่ยวกับเรา" ทำให้ตัดเป็น 3 บรรทัด
+- ให้เปลี่ยนเป็นภาษาไทยล้วน ข้อความละคำเดียว ดังนี้
+  เกี่ยวกับเรา -> #about
+  สินค้า      -> #products
+  การผลิต     -> #process
+  มาตรฐาน     -> #standards
+  ติดต่อ      -> #contact
+- ทุกเมนูต้อง white-space: nowrap ห้ามตัดบรรทัดเด็ดขาด (บรรทัดเดียวเสมอ)
+- ฟอนต์ Anuphan น้ำหนัก 500 ขนาด 16px line-height 1
+  สีปกติ rgba(255,255,255,0.75) hover เป็น #FFFFFF
+- ระยะห่างระหว่างเมนู 22px, เส้นคั่นแนวตั้ง 1px สูง 16px สี rgba(255,255,255,0.22)
+- ถ้าต้องการหลายภาษา ให้ใช้ระบบสลับภาษาจากปุ่มเปลี่ยนภาษาเท่านั้น
+  ห้ามพิมพ์สองภาษาไว้ในข้อความเดียวกัน
+
+[3. ปุ่ม CTA]
+- เปลี่ยนข้อความเป็น "ขอใบเสนอราคา" คำเดียว (ตัด "/ Get a quote" ออก)
+- ลิงก์ไป #quote, พื้นหลัง #1AB1E7, ตัวอักษรสีขาว
+- border-radius 999px, padding 11px 20px, ฟอนต์ Anuphan 600 ขนาด 13.5px line-height 1
+- white-space: nowrap, hover ให้สว่างขึ้น (filter: brightness(1.1))
+
+[4. ขนาดและทรงของแคปซูล]
+- ความสูงรวมของแคปซูลต้องอยู่ราว 58-62px เท่านั้น (ตอนนี้สูงเกินไปมาก)
+- padding ของแคปซูล: บน 9px ขวา 10px ล่าง 9px ซ้าย 18px — ห้ามใส่ padding มากกว่านี้
+- max-width 1100px, width 100%, border-radius 999px
+- พื้นหลัง rgba(6,22,34,0.74) (น้ำเงินเข้มโปร่ง ไม่ใช่สีเทาทึบ)
+  พร้อม backdrop-filter: blur(18px) saturate(160%)
+- ขอบ 1px solid rgba(255,255,255,0.13)
+- เงา 0 24px 60px -24px rgba(0,0,0,0.65)
+- ทุก element ภายในจัด align-items: center แนวตั้งกึ่งกลาง
+
+[5. การจัดวางในแถว]
+- แถวเดียวแนวนอน: โลโก้ (ชิดซ้าย, ไม่ยืด)
+  | กลุ่มเมนู (ดันไปทางขวาด้วย margin-left:auto)
+  | กลุ่มขวา: ปุ่มภาษา + ปุ่ม CTA + ปุ่มแฮมเบอร์เกอร์ (gap 8px)
+- ห้ามให้คอลัมน์ใดยืดจนดันความสูงของแคปซูล
+- ปุ่มเปลี่ยนภาษา: โปร่งใส ขอบ 1px rgba(255,255,255,0.25) radius 999px
+  padding 8px 12px ฟอนต์ Prompt 600 13px มีไอคอนลูกโลก + "ไทย" + ลูกศรลง
+
+[6. ตำแหน่งและพฤติกรรม]
+- header ต้อง position: fixed อยู่ด้านบนตลอดเวลา (ไม่ใช่ไหลไปกับหน้า)
+  ห่างจากขอบบน 16px จัดกึ่งกลางแนวนอน มี padding ซ้ายขวา 16px, z-index 90
+- section แรก (hero) ต้องมี padding บนพอที่จะไม่ถูก header ทับ
+- ทุกเมนูเป็น anchor link ในหน้าเดียวกัน คลิกแล้ว smooth scroll
+  ไปยัง section ที่มี CSS ID: home, about, products, process, standards,
+  clients, quote, contact
+- ตั้ง scroll offset 90-100px เพื่อไม่ให้หัวข้อ section ถูก header บัง
+- เมนูของ section ที่กำลังอยู่ในจอ แสดงสถานะ active เป็นสีขาวเต็ม
+
+[7. จอเล็ก (1020px ลงมา)]
+- ซ่อนรายการเมนูเดสก์ท็อปและปุ่ม CTA
+- แสดงปุ่มแฮมเบอร์เกอร์วงกลม 38x38px ขอบ 1px rgba(255,255,255,0.25)
+  radius 999px ไอคอน 3 ขีดสีขาว
+- กดแล้วเปิดแผงเมนู: fixed top 78px, ซ้าย/ขวา 16px,
+  พื้นหลัง rgba(6,22,34,0.96) + blur, ขอบ 1px rgba(255,255,255,0.12),
+  radius 22px, padding 16px 22px
+- รายการ (ไทยล้วน, บรรทัดเดียว, ขาว, Anuphan 500 16px, padding 13px 4px,
+  เส้นคั่นล่าง 1px rgba(255,255,255,0.08) ยกเว้นอันสุดท้าย):
+  เกี่ยวกับเรา, สินค้า / ขนาดบรรจุ, กระบวนการผลิต, มาตรฐาน, ลูกค้าของเรา, ติดต่อเรา
+  (ลิงก์: #about, #products, #process, #standards, #clients, #contact)
+- ปิดท้ายด้วยปุ่มเต็มความกว้าง "ขอใบเสนอราคา" -> #quote
+  พื้นหลัง #1AB1E7 ตัวอักษร #06202F radius 999px padding 14px จัดกึ่งกลาง
+- กดเมนูข้อใดก็ได้ ให้ปิดแผงก่อนเลื่อน, กดนอกแผงหรือกดแฮมเบอร์เกอร์ซ้ำก็ปิด
+
+[ผลลัพธ์ที่ต้องได้]
+- แคปซูลเตี้ย บาง สูงประมาณ 60px โลโก้เล็กพอดีอยู่ในแคปซูล
+- เมนูทุกอันอยู่บรรทัดเดียว ภาษาไทยล้วน ไม่มีข้อความล้นหรือตัดคำ
+- ทุกปุ่มคลิกแล้วเลื่อนไป section ที่ถูกต้องแบบ smooth
+```
+
+## ถ้า Angie แก้ความสูง/ขนาดโลโก้ไม่ได้ ให้ใส่ CSS นี้เอง
+Elementor → Site Settings → Custom CSS (หรือ Advanced → Custom CSS ของ header container)
+
+```css
+/* บังคับขนาดโลโก้ */
+.ptt-nav img { height: 30px !important; max-height: 30px !important; width: auto !important; display: block; object-fit: contain; }
+@media (max-width: 640px) { .ptt-nav img { height: 26px !important; max-height: 26px !important; } }
+
+/* แคปซูลเตี้ย + กระจกโปร่ง */
+.ptt-nav {
+  max-width: 1100px; width: 100%;
+  padding: 9px 10px 9px 18px !important;
+  border-radius: 999px;
+  background: rgba(6,22,34,.74) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255,255,255,.13);
+  box-shadow: 0 24px 60px -24px rgba(0,0,0,.65);
+  display: flex; align-items: center; gap: 18px;
+}
+
+/* เมนูบรรทัดเดียว ไม่ตัดคำ */
+.ptt-nav a, .ptt-nav .elementor-item { white-space: nowrap !important; line-height: 1 !important; }
+
+/* กันหัวข้อ section ถูก header บังตอน smooth scroll */
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 100px; }
+```
+> ใส่ CSS Class `ptt-nav` ให้ container ของแคปซูลก่อน (Advanced → CSS Classes)
