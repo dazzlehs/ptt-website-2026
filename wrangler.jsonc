@@ -10,7 +10,13 @@
     "command": "npm run build"
   },
   "assets": {
-    "directory": "dist"
+    "directory": "dist",
+    // Single-page marketing site: navigation is all in-page (#hash) anchors, so
+    // there are no real sub-paths. Serve index.html (HTTP 200) for any unmatched
+    // URL instead of a hard 404. This keeps Google Ads / SEO crawlers off 404s
+    // when a Final URL carries a tracking path, a stray trailing segment, or a
+    // deep link. Real files (assets/, css/, js/, admin/) are still served directly.
+    "not_found_handling": "single-page-application"
   },
   "compatibility_flags": [
     "nodejs_compat"

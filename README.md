@@ -48,6 +48,18 @@ Cloudflare Workers ผูกกับ GitHub อยู่แล้ว — push �
 ถ้า `content/*.json` มีข้อความภาษาใดภาษาหนึ่งหาย build จะ **fail พร้อมบอกว่า key ไหน**
 แทนที่จะ deploy หน้าที่พัง
 
+## SEO / Google Ads
+
+- `build.mjs` สร้าง `robots.txt` และ `sitemap.xml` ลง `dist/` ทุกครั้งที่ build
+  โดเมนหลักตั้งไว้ที่ค่าคงที่ `SITE_URL` ใน `build.mjs` (ตอนนี้ `https://pettubtim.com`)
+  ถ้าย้ายโดเมนให้แก้ที่เดียวตรงนั้น แล้วแก้ค่า `canonical` / `og:*` ใน `src/index.html` ให้ตรงกัน
+- `wrangler.jsonc` ตั้ง `not_found_handling: "single-page-application"` — ทุก path
+  ที่ไม่มีไฟล์จริงจะเสิร์ฟ `index.html` (HTTP 200) แทน 404 กันปัญหา Google Ads ตีกลับ
+  ว่า "ปลายทางใช้งานไม่ได้ 404" เวลา Final URL มี tracking path หรือ path แปลกปลอมติดมา
+- `src/index.html` มี `<link rel=canonical>`, Open Graph/Twitter และ JSON-LD
+  (Organization + LocalBusiness) สำหรับ rich result และ local SEO — แก้ที่อยู่/เบอร์/เวลาทำการ
+  ในบล็อก `application/ld+json` ให้ตรงกับ `content/contact.json` ถ้ามีการเปลี่ยน
+
 ## หมายเหตุ
 
 - ฟอร์มขอใบเสนอราคาส่งไป Formspree (`https://formspree.io/f/xojgdqeq`) ซึ่ง forward ไป
