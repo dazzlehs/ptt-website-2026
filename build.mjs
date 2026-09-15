@@ -9,6 +9,9 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const LANGS = ['th', 'en', 'zh', 'ja'];
 const DIST = path.join(ROOT, 'dist');
+// Canonical production origin. Used for robots.txt, sitemap.xml and the
+// canonical/og URLs in the page. No trailing slash. Change here if the domain moves.
+const SITE_URL = 'https://pettubtim.com';
 
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 const readJSON = (p) => JSON.parse(read(p));
@@ -92,6 +95,28 @@ for (const dir of ['assets', 'css', 'js', 'admin']) {
     fs.cpSync(path.join(ROOT, dir), path.join(DIST, dir), { recursive: true });
   }
 }
+// robots.txt — let every crawler in and point them at the sitemap.
+fs.writeFileSync(
+  path.join(DIST, 'robots.txt'),
+  `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`
+);
+
+// sitemap.xml — one canonical URL for this single-page site. lastmod tracks the
+// build date so re-deploys tell search engines the page was refreshed.
+const lastmod = new Date().toISOString().slice(0, 10);
+fs.writeFileSync(
+  path.join(DIST, 'sitemap.xml'),
+  `<?xml version="1.0" encoding="UTF-8"?>\n` +
+    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+    `  <url>\n` +
+    `    <loc>${SITE_URL}/</loc>\n` +
+    `    <lastmod>${lastmod}</lastmod>\n` +
+    `    <changefreq>monthly</changefreq>\n` +
+    `    <priority>1.0</priority>\n` +
+    `  </url>\n` +
+    `</urlset>\n`
+);
+
 // Serve the CMS from our own origin instead of a CDN. Pinned in package.json.
 const cms = path.join(ROOT, 'node_modules/@sveltia/cms/dist/sveltia-cms.js');
 if (fs.existsSync(cms)) {

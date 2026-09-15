@@ -18,6 +18,7 @@
   function setLang(lang) {
     if (!LANG_LABELS[lang]) return;
     app.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
     langLabelEl.textContent = LANG_LABELS[lang];
     document.title = lang === 'th' ? TITLE_TH : TITLE_OTHER;
     try { localStorage.setItem('ptt-lang', lang); } catch (e) {}
