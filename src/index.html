@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>น้ำดื่มเพชรทับทิม | บริษัท 4415 อินเตอร์ กรุ๊ป จำกัด</title>
+<title>น้ำดื่มเพชรทับทิม โรงงานน้ำดื่มฉะเชิงเทรา (แปดริ้ว) | บริษัท 4415 อินเตอร์ กรุ๊ป จำกัด</title>
 <link rel="icon" type="image/png" href="assets/favicon.png">
-<meta name="description" content="น้ำดื่มตราเพชรทับทิม ผลิตโดยบริษัท 4415 อินเตอร์ กรุ๊ป จำกัด น้ำดื่มสะอาดรับรองมาตรฐาน ISO 22000:2018, HACCP และ GHPs ผลิตกว่า 20 ล้านลิตรต่อปี บริการส่งน้ำดื่มปริมาณมากถึงโรงงานในฉะเชิงเทรา ชลบุรี สมุทรปราการ ขอใบเสนอราคาฟรี โทร 038-595-888">
-<meta name="keywords" content="น้ำดื่มโรงงาน, รับผลิตน้ำดื่ม, น้ำดื่มปริมาณมาก, น้ำดื่มถัง 18.9 ลิตร, น้ำดื่มตราเพชรทับทิม, ส่งน้ำดื่มโรงงาน ฉะเชิงเทรา, น้ำดื่ม ISO 22000 HACCP GHPs">
+<meta name="description" content="น้ำดื่มตราเพชรทับทิม โรงงานน้ำดื่มฉะเชิงเทรา (แปดริ้ว) รับรอง ISO 22000:2018, HACCP, GHPs ผลิตกว่า 20 ล้านลิตรต่อปี ส่งน้ำดื่มถึงโรงงานในนิคมอมตะ เวลโกรว์ เกตเวย์ ทีเอฟดี บางพลี และนิคมเอเชีย ขอใบเสนอราคาฟรี โทร 038-595-888">
+<meta name="keywords" content="น้ำดื่มแปดริ้ว, น้ำดื่มฉะเชิงเทรา, น้ำดื่มอมตะ, น้ำดื่มเวลโกรว์, น้ำดื่มเกตเวย์, น้ำดื่มบางพลี, น้ำดื่มเอเชีย, น้ำดื่มทีเอฟดี, น้ำดื่มโรงงาน, น้ำดื่มถัง 18.9 ลิตร, น้ำดื่มตราเพชรทับทิม">
 <link rel="canonical" href="https://pettubtim.com/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:title" content="น้ำดื่มตราเพชรทับทิม — น้ำดื่มมาตรฐานโรงงานอุตสาหกรรม">
@@ -65,6 +65,17 @@
       "email": "info@pettubtim.com",
       "telephone": "+6638595888",
       "priceRange": "$$",
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "ฉะเชิงเทรา (แปดริ้ว)" },
+        { "@type": "AdministrativeArea", "name": "ชลบุรี" },
+        { "@type": "AdministrativeArea", "name": "สมุทรปราการ" },
+        { "@type": "Place", "name": "นิคมอุตสาหกรรมอมตะซิตี้ ชลบุรี" },
+        { "@type": "Place", "name": "นิคมอุตสาหกรรมเวลโกรว์" },
+        { "@type": "Place", "name": "นิคมอุตสาหกรรมเกตเวย์ ซิตี้" },
+        { "@type": "Place", "name": "เขตอุตสาหกรรมทีเอฟดี" },
+        { "@type": "Place", "name": "นิคมอุตสาหกรรมบางพลี" },
+        { "@type": "Place", "name": "นิคมอุตสาหกรรมเอเชีย สุวรรณภูมิ" }
+      ],
       "parentOrganization": {
         "@id": "https://pettubtim.com/#organization"
       },
@@ -368,6 +379,25 @@
       <div class="clients-grid">
         {{#each clients.items}}
         <div class="client-badge client-logo-{{it.size}}"><img src="assets/{{it.logo}}" alt="{{it.name}}" loading="lazy"></div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICE AREAS ============ -->
+  <section class="areas-section" id="areas" data-screen-label="Areas" data-sec="">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">{{t:areas.01}}</span>
+        <h2 class="section-title">{{t:areas.02}}</h2>
+        <p class="areas-lead">{{t:areas.03}}</p>
+      </div>
+      <div class="areas-grid">
+        {{#each areas.items}}
+        <a class="area-link-card" href="/area/{{it.slug}}/">
+          <span class="area-link-name">{{t.name}}</span>
+          <span class="area-link-place">{{t.place}}</span>
+        </a>
         {{/each}}
       </div>
     </div>

@@ -917,3 +917,75 @@ collections:
             - { name: en, label: "English", widget: string, required: true }
             - { name: zh, label: "中文", widget: string, required: true }
             - { name: ja, label: "日本語", widget: string, required: true }
+    - name: areas
+      label: "พื้นที่ให้บริการ (หน้า SEO)"
+      file: "content/areas.json"
+      format: json
+      fields:
+        - name: "01"
+          label: "หัวข้อเล็ก"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "02"
+          label: "หัวข้อใหญ่"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "03"
+          label: "คำอธิบาย"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: items
+          label: "หน้าพื้นที่"
+          label_singular: "พื้นที่"
+          widget: list
+          collapsed: true
+          summary: "{{fields.slug}}"
+          fields:
+          - { name: slug, label: "URL (/area/<ชื่อนี้>/) — a-z, 0-9, - เท่านั้น ห้ามเปลี่ยนหลังเผยแพร่", widget: string, required: true, pattern: ["^[a-z0-9-]+$", "ใช้ได้เฉพาะ a-z 0-9 และ -"] }
+          - name: "name"
+            label: "ชื่อบนการ์ดหน้าแรก"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: th, label: "ไทย", widget: string, required: true }
+              - { name: en, label: "English", widget: string, required: true }
+              - { name: zh, label: "中文", widget: string, required: true }
+              - { name: ja, label: "日本語", widget: string, required: true }
+          - name: "place"
+            label: "ชื่อสถานที่"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: th, label: "ไทย", widget: string, required: true }
+              - { name: en, label: "English", widget: string, required: true }
+              - { name: zh, label: "中文", widget: string, required: true }
+              - { name: ja, label: "日本語", widget: string, required: true }
+          - { name: title, label: "Title (แสดงใน Google ~60 ตัวอักษร)", widget: string, required: true }
+          - { name: description, label: "Meta description (~150 ตัวอักษร)", widget: text, required: true }
+          - { name: h1, label: "หัวข้อหลัก (H1)", widget: string, required: true }
+          - { name: lead, label: "คำโปรยใต้หัวข้อ", widget: text, required: true }
+          - { name: paragraphs, label: "เนื้อหา (ย่อหน้า)", widget: list, field: { name: p, label: "ย่อหน้า", widget: text } }
+          - { name: nearby, label: "พื้นที่ใกล้เคียง", widget: list, field: { name: n, label: "ชื่อพื้นที่", widget: string } }
+          - name: faq
+            label: "คำถามที่พบบ่อย"
+            widget: list
+            collapsed: true
+            summary: "{{fields.q}}"
+            fields:
+              - { name: q, label: "คำถาม", widget: string }
+              - { name: a, label: "คำตอบ", widget: text }

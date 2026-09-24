@@ -60,6 +60,13 @@ Cloudflare Workers ผูกกับ GitHub อยู่แล้ว — push �
   (Organization + LocalBusiness) สำหรับ rich result และ local SEO — แก้ที่อยู่/เบอร์/เวลาทำการ
   ในบล็อก `application/ld+json` ให้ตรงกับ `content/contact.json` ถ้ามีการเปลี่ยน
 
+- **หน้าพื้นที่ (local SEO)** — `content/areas.json` + `src/area.html` สร้างหน้า
+  `/area/<slug>/` ภาษาไทยหนึ่งหน้าต่อหนึ่ง keyword (น้ำดื่มฉะเชิงเทรา/แปดริ้ว, อมตะ, เวลโกรว์,
+  เกตเวย์, บางพลี, เอเชีย, ทีเอฟดี) พร้อม title/description/H1/FAQ ของตัวเอง, JSON-LD
+  (Service + BreadcrumbList + FAQPage) และถูกใส่ใน `sitemap.xml` อัตโนมัติ หน้าแรกลิงก์ไปทุกหน้า
+  ในส่วน "พื้นที่ให้บริการ" (`#areas`) เพิ่ม/แก้พื้นที่ได้ใน /admin — ขั้นตอนนอกเว็บดูที่
+  [docs/SEO.md](docs/SEO.md)
+
 ## หมายเหตุ
 
 - ฟอร์มขอใบเสนอราคาส่งไป Formspree (`https://formspree.io/f/xojgdqeq`) ซึ่ง forward ไป
