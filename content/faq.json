@@ -1,0 +1,86 @@
+{
+  "01": {
+    "th": "คำถามที่พบบ่อย",
+    "en": "FAQ",
+    "zh": "常见问题",
+    "ja": "よくある質問"
+  },
+  "02": {
+    "th": "น้ำดื่มถัง การจัดส่ง และการรับผลิต",
+    "en": "Water bottles, delivery and private label",
+    "zh": "桶装水、配送与贴牌代工",
+    "ja": "ボトル水・配送・OEMについて"
+  },
+  "items": [
+    {
+      "q": {
+        "th": "น้ำดื่ม 20 ลิตร กับน้ำถัง 18.9 ลิตร ต่างกันไหม?",
+        "en": "Is a “20-litre” water bottle the same as an 18.9L bottle?",
+        "zh": "“20 升桶装水”和 18.9 升桶装水一样吗？",
+        "ja": "「20リットルの水」と18.9Lボトルは同じですか？"
+      },
+      "a": {
+        "th": "เป็นถังแบบเดียวกัน ถังน้ำดื่มขนาดใหญ่มาตรฐานสำหรับตู้กดน้ำบรรจุ 18.9 ลิตร (5 แกลลอน) ซึ่งคนทั่วไปมักเรียกว่า “น้ำดื่ม 20 ลิตร” หรือ “น้ำถังใหญ่” น้ำดื่มเพชรทับทิมบรรจุในถังโพลีคาร์บอเนตใส ใช้กับตู้กดน้ำได้ทันที",
+        "en": "Yes. The standard large dispenser bottle holds 18.9 litres (5 US gallons) and is often called a “20-litre” bottle. Pettubtim water comes in a clear polycarbonate bottle that fits any standard dispenser.",
+        "zh": "是的。饮水机用的标准大桶容量为 18.9 升（5 加仑），常被称为“20 升桶装水”。Pettubtim 饮用水采用透明聚碳酸酯桶，可直接装上饮水机使用。",
+        "ja": "はい。ウォーターサーバー用の標準的な大型ボトルは18.9リットル（5ガロン）で、一般に「20リットル」と呼ばれます。Pettubtim の水は透明ポリカーボネートボトル入りで、そのままサーバーに設置できます。"
+      }
+    },
+    {
+      "q": {
+        "th": "มีบริการส่งน้ำดื่มถังถึงบ้านไหม?",
+        "en": "Do you deliver bottled water to homes?",
+        "zh": "你们提供桶装水送货上门服务吗？",
+        "ja": "ボトル水の家庭への配達はありますか？"
+      },
+      "a": {
+        "th": "มี เราให้บริการส่งน้ำดื่มถังถึงบ้าน สำนักงาน และโรงงาน ด้วยรถขนส่งของบริษัทเองในพื้นที่ฉะเชิงเทรา ชลบุรี และสมุทรปราการ พร้อมเปลี่ยนถังเปล่าให้ถึงที่ สั่งได้ที่ 038-595-888 หรือ LINE @pettubtim",
+        "en": "Yes. Our own trucks deliver bottled water to homes, offices and factories across Chachoengsao, Chonburi and Samut Prakan, and swap out your empty bottles. Order on 038-595-888 or LINE @pettubtim.",
+        "zh": "有。我们以自有车队为北柳、春武里及北榄府的住宅、办公室和工厂配送桶装水，并上门更换空桶。订购电话 038-595-888 或 LINE @pettubtim。",
+        "ja": "はい。チャチューンサオ・チョンブリ・サムットプラカンの住宅・オフィス・工場へ自社便でお届けし、空きボトルも交換します。ご注文は 038-595-888 または LINE @pettubtim まで。"
+      }
+    },
+    {
+      "q": {
+        "th": "รับผลิตน้ำดื่มติดแบรนด์ (OEM) ไหม?",
+        "en": "Do you produce private-label (OEM) drinking water?",
+        "zh": "你们提供饮用水贴牌代工（OEM）吗？",
+        "ja": "飲料水のOEM（プライベートブランド）製造は可能ですか？"
+      },
+      "a": {
+        "th": "รับ บริษัท 4415 อินเตอร์ กรุ๊ป จำกัด เป็นบริษัทผลิตน้ำดื่มที่รับผลิตน้ำดื่มติดแบรนด์หรือโลโก้ของลูกค้า สอบถามขนาดบรรจุ จำนวนขั้นต่ำ และราคาได้ที่ 038-595-888 หรือ info@pettubtim.com",
+        "en": "Yes. 4415 Inter Group Co., Ltd. produces drinking water under your own brand or logo. Ask us about pack sizes, minimum order and pricing on 038-595-888 or info@pettubtim.com.",
+        "zh": "可以。4415 Inter Group 有限公司可按客户品牌或标志生产饮用水。包装规格、起订量及价格请致电 038-595-888 或发邮件至 info@pettubtim.com 咨询。",
+        "ja": "可能です。4415 Inter Group Co., Ltd. はお客様のブランドやロゴで飲料水を製造します。容量・最小ロット・価格は 038-595-888 または info@pettubtim.com へお問い合わせください。"
+      }
+    },
+    {
+      "q": {
+        "th": "โรงงานผลิตน้ำดื่มอยู่ที่ไหน ส่งถึงชลบุรีไหม?",
+        "en": "Where is your plant, and do you deliver to Chonburi?",
+        "zh": "工厂在哪里？配送到春武里吗？",
+        "ja": "工場はどこですか？チョンブリへ配送できますか？"
+      },
+      "a": {
+        "th": "โรงงานผลิตน้ำดื่มของเราอยู่ที่ ต.เทพราช อ.บ้านโพธิ์ จ.ฉะเชิงเทรา และจัดส่งด้วยรถของบริษัทเองถึงจังหวัดชลบุรี รวมถึงนิคมอุตสาหกรรมอมตะซิตี้ ชลบุรี และจังหวัดสมุทรปราการ",
+        "en": "Our plant is in Thepparat, Ban Pho, Chachoengsao. Our own trucks deliver to Chonburi — including Amata City Chonburi Industrial Estate — and to Samut Prakan.",
+        "zh": "我们的工厂位于北柳府万博县 Thepparat，自有车队配送至春武里府（包括安美德城春武里工业园）及北榄府。",
+        "ja": "工場はチャチューンサオ県バーンポー郡テープパラートにあります。自社便でチョンブリ（アマタシティ・チョンブリ工業団地を含む）とサムットプラカンへ配送します。"
+      }
+    },
+    {
+      "q": {
+        "th": "น้ำดื่มเพชรทับทิมผ่านมาตรฐานอะไรบ้าง?",
+        "en": "Which standards does Pettubtim water meet?",
+        "zh": "Pettubtim 饮用水通过了哪些认证？",
+        "ja": "Pettubtim の水はどの基準に適合していますか？"
+      },
+      "a": {
+        "th": "โรงงานได้รับการรับรอง ISO 22000:2018, HACCP และ GHPs น้ำดื่มทุกถังกรองด้วยระบบ RO ฆ่าเชื้อด้วย UV และ Ozone และปิดผนึกฝาทุกถัง",
+        "en": "The plant is certified to ISO 22000:2018, HACCP and GHPs. Every bottle is RO-filtered, sterilised with UV and ozone, and sealed.",
+        "zh": "工厂通过 ISO 22000:2018、HACCP 及 GHPs 认证。每桶水均经 RO 过滤、UV 与臭氧杀菌并密封。",
+        "ja": "工場は ISO 22000:2018・HACCP・GHPs の認証を取得。全ボトルを RO ろ過し、UV とオゾンで殺菌、密封しています。"
+      }
+    }
+  ]
+}

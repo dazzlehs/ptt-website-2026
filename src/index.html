@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>โรงงานผลิตน้ำดื่มเพชรทับทิม ฉะเชิงเทรา (แปดริ้ว) | น้ำถัง 18.9 ลิตร ส่งน้ำถึงโรงงาน</title>
 <link rel="icon" type="image/png" href="assets/favicon.png">
-<meta name="description" content="โรงงานผลิตน้ำดื่มตราเพชรทับทิม ฉะเชิงเทรา (แปดริ้ว) รับรอง ISO 22000:2018, HACCP, GHPs น้ำถัง 18.9 ลิตรและน้ำดื่มขวด ส่งน้ำถึงโรงงานในนิคมอมตะ เวลโกรว์ เกตเวย์ ทีเอฟดี บางพลี และนิคมเอเชีย ขอใบเสนอราคาฟรี โทร 038-595-888">
-<meta name="keywords" content="โรงงานผลิตน้ำดื่ม, น้ำถัง 18.9 ลิตร, ส่งน้ำ โรงงาน, น้ำดื่มแปดริ้ว, น้ำดื่มฉะเชิงเทรา, น้ำดื่มอมตะ, น้ำดื่มเวลโกรว์, น้ำดื่มเกตเวย์, น้ำดื่มบางพลี, น้ำดื่มเอเชีย, น้ำดื่มทีเอฟดี, น้ำดื่มโรงงาน, น้ำดื่มถัง 18.9 ลิตร, น้ำดื่มตราเพชรทับทิม">
+<meta name="description" content="โรงงานผลิตน้ำดื่มเพชรทับทิม ฉะเชิงเทรา รับรอง ISO 22000 HACCP GHPs บริการส่งน้ำดื่มถัง 18.9 ลิตร (น้ำดื่ม 20 ลิตร) ถึงโรงงาน สำนักงาน และส่งถึงบ้าน ในฉะเชิงเทรา ชลบุรี สมุทรปราการ รับผลิตน้ำดื่ม OEM ขอใบเสนอราคาฟรี โทร 038-595-888">
+<meta name="keywords" content="น้ำดื่ม, โรงงานผลิตน้ำดื่ม, บริษัทผลิตน้ำดื่ม, รับผลิตน้ำดื่ม, โรงงานผลิตน้ำดื่ม ชลบุรี, น้ำดื่ม 20 ลิตร, น้ำถัง 18.9 ลิตร, น้ำถังใหญ่, บริการส่งน้ำดื่มถัง, น้ำดื่มถัง ส่งถึงบ้าน, ส่งน้ำ โรงงาน, น้ำดื่มแปดริ้ว, น้ำดื่มฉะเชิงเทรา, น้ำดื่มอมตะ, น้ำดื่มเวลโกรว์, น้ำดื่มเกตเวย์, น้ำดื่มบางพลี, น้ำดื่มเอเชีย, น้ำดื่มทีเอฟดี, น้ำดื่มโรงงาน, น้ำดื่มถัง 18.9 ลิตร, น้ำดื่มตราเพชรทับทิม">
 <link rel="canonical" href="https://pettubtim.com/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:title" content="โรงงานผลิตน้ำดื่มเพชรทับทิม — น้ำถัง 18.9 ลิตร ส่งน้ำถึงโรงงาน">
@@ -114,6 +114,9 @@
     }
   ]
 }
+</script>
+<script type="application/ld+json">
+{{faq.jsonld}}
 </script>
 </head>
 <body>
@@ -399,6 +402,21 @@
           <span class="area-link-name">{{t.name}}</span>
           <span class="area-link-place">{{t.place}}</span>
         </a>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq-section" id="faq" data-screen-label="FAQ" data-sec="">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">{{t:faq.01}}</span>
+        <h2 class="section-title">{{t:faq.02}}</h2>
+      </div>
+      <div class="faq-list">
+        {{#each faq.items}}
+        <details class="area-faq-item"><summary>{{t.q}}</summary><p>{{t.a}}</p></details>
         {{/each}}
       </div>
     </div>

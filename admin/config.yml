@@ -989,3 +989,51 @@ collections:
             fields:
               - { name: q, label: "คำถาม", widget: string }
               - { name: a, label: "คำตอบ", widget: text }
+    - name: faq
+      label: "คำถามที่พบบ่อย (หน้าแรก)"
+      file: "content/faq.json"
+      format: json
+      fields:
+        - name: "01"
+          label: "หัวข้อเล็ก"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "02"
+          label: "หัวข้อใหญ่"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: items
+          label: "คำถาม"
+          label_singular: "คำถาม"
+          widget: list
+          collapsed: true
+          summary: "{{fields.q.th}}"
+          fields:
+          - name: "q"
+            label: "คำถาม"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: th, label: "ไทย", widget: string, required: true }
+              - { name: en, label: "English", widget: string, required: true }
+              - { name: zh, label: "中文", widget: string, required: true }
+              - { name: ja, label: "日本語", widget: string, required: true }
+          - name: "a"
+            label: "คำตอบ"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: th, label: "ไทย", widget: text, required: true }
+              - { name: en, label: "English", widget: text, required: true }
+              - { name: zh, label: "中文", widget: text, required: true }
+              - { name: ja, label: "日本語", widget: text, required: true }

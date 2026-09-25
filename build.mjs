@@ -89,7 +89,21 @@ function render(template, label) {
   return out;
 }
 
-const html = render(read('src/index.html'), 'src/index.html');
+// FAQPage structured data for the home page FAQ section, in Thai (the page's
+// default language) so it matches the text Google indexes.
+const faqJSONLD = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: (data.faq?.items || []).map((x) => ({
+    '@type': 'Question',
+    name: x.q.th,
+    acceptedAnswer: { '@type': 'Answer', text: x.a.th },
+  })),
+};
+const html = render(
+  read('src/index.html').replace('{{faq.jsonld}}', () => JSON.stringify(faqJSONLD, null, 2).replace(/</g, '\\u003c')),
+  'src/index.html'
+);
 
 // Area landing pages: one Thai page per service area in content/areas.json,
 // rendered from src/area.html to dist/area/<slug>/index.html. Each targets a
