@@ -80,16 +80,117 @@ function renderEach(listPath, body) {
     .join('');
 }
 
-let html = read('src/index.html')
-  .replace(/\{\{#each ([\w.]+)\}\}([\s\S]*?)\{\{\/each\}\}/g, (_, listPath, body) => renderEach(listPath, body))
-  .replace(/\{\{t:([\w.]+)\}\}/g, (_, key) => renderGroup(key));
+function render(template, label) {
+  const out = template
+    .replace(/\{\{#each ([\w.]+)\}\}([\s\S]*?)\{\{\/each\}\}/g, (_, listPath, body) => renderEach(listPath, body))
+    .replace(/\{\{t:([\w.]+)\}\}/g, (_, key) => renderGroup(key));
+  const unresolved = out.match(/\{\{[^}]*\}\}/g);
+  if (unresolved) throw new Error(`build: ${label}: unresolved tokens: ${[...new Set(unresolved)].join(', ')}`);
+  return out;
+}
 
-const unresolved = html.match(/\{\{[^}]*\}\}/g);
-if (unresolved) throw new Error(`build: unresolved tokens: ${[...new Set(unresolved)].join(', ')}`);
+// FAQPage structured data for the home page FAQ section, in Thai (the page's
+// default language) so it matches the text Google indexes.
+const faqJSONLD = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: (data.faq?.items || []).map((x) => ({
+    '@type': 'Question',
+    name: x.q.th,
+    acceptedAnswer: { '@type': 'Answer', text: x.a.th },
+  })),
+};
+const html = render(
+  read('src/index.html').replace('{{faq.jsonld}}', () => JSON.stringify(faqJSONLD, null, 2).replace(/</g, '\\u003c')),
+  'src/index.html'
+);
+
+// Area landing pages: one Thai page per service area in content/areas.json,
+// rendered from src/area.html to dist/area/<slug>/index.html. Each targets a
+// local search phrase ("น้ำดื่ม<area>") with its own title, copy and FAQ.
+const areas = data.areas?.items || [];
+const areaURL = (a) => `${SITE_URL}/area/${a.slug}/`;
+function renderAreaPage(a, i) {
+  const label = `areas.items[${i}]`;
+  for (const f of ['slug', 'title', 'description', 'h1', 'lead']) {
+    if (!a[f]) throw new Error(`build: ${label} is missing "${f}"`);
+  }
+  if (!/^[a-z0-9-]+$/.test(a.slug)) throw new Error(`build: ${label}.slug must be lowercase a-z, 0-9 or "-"`);
+  const faq = a.faq || [];
+  const jsonld = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': `${areaURL(a)}#webpage`,
+        url: areaURL(a),
+        name: a.title,
+        description: a.description,
+        inLanguage: 'th',
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+        about: { '@id': `${SITE_URL}/#business` },
+      },
+      {
+        '@type': 'Service',
+        name: a.h1,
+        serviceType: 'จัดส่งน้ำดื่ม',
+        provider: { '@id': `${SITE_URL}/#business` },
+        areaServed: [a.place.th, ...(a.nearby || [])].map((name) => ({ '@type': 'Place', name })),
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${SITE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: a.place.th, item: areaURL(a) },
+        ],
+      },
+      ...(faq.length
+        ? [{
+            '@type': 'FAQPage',
+            mainEntity: faq.map((x) => ({
+              '@type': 'Question',
+              name: x.q,
+              acceptedAnswer: { '@type': 'Answer', text: x.a },
+            })),
+          }]
+        : []),
+    ],
+  };
+  const fields = {
+    ...a,
+    place: a.place.th,
+    url: areaURL(a),
+    paragraphs: (a.paragraphs || []).map((p) => `<p>${escapeHTML(p)}</p>`).join('\n        '),
+    nearby: (a.nearby || []).map((n) => `<li>${escapeHTML(n)}</li>`).join(''),
+    faq: faq
+      .map((x) => `<details class="area-faq-item"><summary>${escapeHTML(x.q)}</summary><p>${escapeHTML(x.a)}</p></details>`)
+      .join(''),
+    others: areas
+      .filter((o) => o !== a)
+      .map((o) => `<li><a href="/area/${o.slug}/">${escapeHTML(o.name.th)}</a></li>`)
+      .join(''),
+  };
+  const raw = new Set(['paragraphs', 'nearby', 'faq', 'others']);
+  // Substitute {{a.*}} first so the shared renderer's unresolved-token check
+  // still catches typos. JSON-LD goes in as-is ("<" escaped so it can't close
+  // the script tag).
+  const page = read('src/area.html')
+    .replace('{{a.jsonld}}', () => JSON.stringify(jsonld, null, 2).replace(/</g, '\\u003c'))
+    .replace(/\{\{a\.([\w-]+)\}\}/g, (_, f) => {
+      if (fields[f] === undefined) throw new Error(`build: ${label} is missing "${f}"`);
+      return raw.has(f) ? fields[f] : escapeHTML(fields[f]);
+    });
+  return render(page, `area/${a.slug}`);
+}
 
 fs.rmSync(DIST, { recursive: true, force: true });
 fs.mkdirSync(DIST, { recursive: true });
 fs.writeFileSync(path.join(DIST, 'index.html'), html);
+areas.forEach((a, i) => {
+  const dir = path.join(DIST, 'area', a.slug);
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, 'index.html'), renderAreaPage(a, i));
+});
 for (const dir of ['assets', 'css', 'js', 'admin']) {
   if (fs.existsSync(path.join(ROOT, dir))) {
     fs.cpSync(path.join(ROOT, dir), path.join(DIST, dir), { recursive: true });
@@ -101,19 +202,22 @@ fs.writeFileSync(
   `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`
 );
 
-// sitemap.xml — one canonical URL for this single-page site. lastmod tracks the
-// build date so re-deploys tell search engines the page was refreshed.
+// sitemap.xml — the home page plus every area landing page. lastmod tracks the
+// build date so re-deploys tell search engines the pages were refreshed.
 const lastmod = new Date().toISOString().slice(0, 10);
+const sitemapEntry = (loc, priority) =>
+  `  <url>\n` +
+  `    <loc>${loc}</loc>\n` +
+  `    <lastmod>${lastmod}</lastmod>\n` +
+  `    <changefreq>monthly</changefreq>\n` +
+  `    <priority>${priority}</priority>\n` +
+  `  </url>\n`;
 fs.writeFileSync(
   path.join(DIST, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n` +
     `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-    `  <url>\n` +
-    `    <loc>${SITE_URL}/</loc>\n` +
-    `    <lastmod>${lastmod}</lastmod>\n` +
-    `    <changefreq>monthly</changefreq>\n` +
-    `    <priority>1.0</priority>\n` +
-    `  </url>\n` +
+    sitemapEntry(`${SITE_URL}/`, '1.0') +
+    areas.map((a) => sitemapEntry(areaURL(a), '0.8')).join('') +
     `</urlset>\n`
 );
 
@@ -126,4 +230,4 @@ if (fs.existsSync(cms)) {
   console.warn('build: @sveltia/cms not installed - /admin will not load. Run `npm install`.');
 }
 
-console.log(`built dist/index.html (${Object.keys(content).length} strings, ${html.length} bytes)`);
+console.log(`built dist/index.html (${Object.keys(content).length} strings, ${html.length} bytes) + ${areas.length} area pages`);
