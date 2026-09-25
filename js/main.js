@@ -12,7 +12,7 @@
   var lightboxImg = document.getElementById('lightbox-img');
 
   var LANG_LABELS = { th: 'ไทย', en: 'EN', zh: '中文', ja: '日本語' };
-  var TITLE_TH = 'น้ำดื่มเพชรทับทิม โรงงานน้ำดื่มฉะเชิงเทรา (แปดริ้ว) | บริษัท 4415 อินเตอร์ กรุ๊ป จำกัด';
+  var TITLE_TH = 'โรงงานผลิตน้ำดื่มเพชรทับทิม ฉะเชิงเทรา (แปดริ้ว) | น้ำถัง 18.9 ลิตร ส่งน้ำถึงโรงงาน';
   var TITLE_OTHER = 'Pettubtim Drinking Water';
 
   function setLang(lang) {
