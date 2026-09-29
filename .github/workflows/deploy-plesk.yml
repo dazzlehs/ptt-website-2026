@@ -1,0 +1,61 @@
+# Plesk (Hostatom) can only pull files from Git - it can't run `npm run build`.
+# Since the site moved to src/ + content/ -> dist/, the repo root no longer holds
+# a servable index.html, so pulling master into httpdocs never updates the site.
+#
+# This workflow builds dist/ on every push to master and publishes it, as-is, to
+# the `plesk` branch. Point Plesk's Git deployment at that branch (repo root ->
+# httpdocs) and the live site matches what Cloudflare builds.
+name: Build for Plesk
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-plesk
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      # Apache equivalent of wrangler.jsonc's not_found_handling:
+      # "single-page-application" - unknown paths get index.html instead of a
+      # 404 (keeps Google Ads Final URLs with stray paths working). HTML is
+      # revalidated on every request so a new deploy shows up immediately.
+      - name: Add .htaccess
+        run: |
+          cat > dist/.htaccess <<'HTACCESS'
+          DirectoryIndex index.html
+          ErrorDocument 404 /index.html
+          <IfModule mod_headers.c>
+            <FilesMatch "\.html$">
+              Header set Cache-Control "no-cache"
+            </FilesMatch>
+          </IfModule>
+          HTACCESS
+
+      - name: Publish dist/ to the plesk branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: plesk
+          publish_dir: ./dist
+          force_orphan: true
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com
+          commit_message: "Build ${{ github.sha }}"

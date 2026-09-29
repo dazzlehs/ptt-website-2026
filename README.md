@@ -45,6 +45,15 @@ Cloudflare Workers ผูกกับ GitHub อยู่แล้ว — push �
 
 ไม่ต้องตั้ง build command ในหน้า Cloudflare dashboard — `wrangler.jsonc` จัดการให้แล้ว
 
+### Plesk (Hostatom)
+
+Plesk ดึงไฟล์จาก Git ได้อย่างเดียว รัน `npm run build` ไม่ได้ และ root ของ repo ไม่มี
+`index.html` แล้ว (ย้ายไป `src/` ตั้งแต่ทำ CMS) — ดึง `master` ลง `httpdocs` ตรง ๆ เว็บจึงไม่เปลี่ยน
+
+`.github/workflows/deploy-plesk.yml` จะ build ทุกครั้งที่ push ขึ้น `master` แล้วเอา `dist/`
+(พร้อม `.htaccess`) ไปวางไว้ที่ branch `plesk` ให้ตั้ง Plesk → Git → Repository branch เป็น
+`plesk`, deploy path เป็น `httpdocs` (ไม่ใช่ `httpdocs/dist`) และเปิด Automatic deployment
+
 ถ้า `content/*.json` มีข้อความภาษาใดภาษาหนึ่งหาย build จะ **fail พร้อมบอกว่า key ไหน**
 แทนที่จะ deploy หน้าที่พัง
 
