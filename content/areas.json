@@ -21,7 +21,7 @@
     {
       "slug": "chachoengsao",
       "name": {
-        "th": "น้ำดื่มฉะเชิงเทรา · แปดริ้ว",
+        "th": "ฉะเชิงเทรา · แปดริ้ว",
         "en": "Chachoengsao (Paet Riu)",
         "zh": "北柳府",
         "ja": "チャチューンサオ"
@@ -71,7 +71,7 @@
     {
       "slug": "chonburi",
       "name": {
-        "th": "น้ำดื่มชลบุรี",
+        "th": "ชลบุรี",
         "en": "Chonburi",
         "zh": "春武里府",
         "ja": "チョンブリ"
@@ -111,7 +111,7 @@
     {
       "slug": "amata",
       "name": {
-        "th": "น้ำดื่มอมตะ",
+        "th": "นิคมอมตะซิตี้",
         "en": "Amata City Chonburi",
         "zh": "安美德春武里工业园",
         "ja": "アマタシティ・チョンブリ"
@@ -151,7 +151,7 @@
     {
       "slug": "wellgrow",
       "name": {
-        "th": "น้ำดื่มเวลโกรว์",
+        "th": "นิคมเวลโกรว์",
         "en": "Wellgrow Industrial Estate",
         "zh": "Wellgrow 工业园",
         "ja": "ウェルグロー工業団地"
@@ -192,7 +192,7 @@
     {
       "slug": "gateway",
       "name": {
-        "th": "น้ำดื่มเกตเวย์",
+        "th": "นิคมเกตเวย์ ซิตี้",
         "en": "Gateway City Industrial Estate",
         "zh": "Gateway City 工业园",
         "ja": "ゲートウェイシティ工業団地"
@@ -232,7 +232,7 @@
     {
       "slug": "bangphli",
       "name": {
-        "th": "น้ำดื่มบางพลี",
+        "th": "บางพลี",
         "en": "Bang Phli",
         "zh": "挽披",
         "ja": "バーンプリー"
@@ -274,7 +274,7 @@
     {
       "slug": "asia",
       "name": {
-        "th": "น้ำดื่มเอเชีย",
+        "th": "นิคมเอเชีย",
         "en": "Asia Industrial Estate",
         "zh": "亚洲工业园",
         "ja": "アジア工業団地"
@@ -315,7 +315,7 @@
     {
       "slug": "tfd",
       "name": {
-        "th": "น้ำดื่มทีเอฟดี",
+        "th": "เขตอุตสาหกรรมทีเอฟดี",
         "en": "TFD Industrial Estate",
         "zh": "TFD 工业园",
         "ja": "TFD工業団地"

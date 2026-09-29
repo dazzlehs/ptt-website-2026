@@ -196,6 +196,8 @@ for (const dir of ['assets', 'css', 'js', 'admin']) {
     fs.cpSync(path.join(ROOT, dir), path.join(DIST, dir), { recursive: true });
   }
 }
+// Browsers and Google ask for /favicon.ico at the site root regardless of <link rel=icon>.
+fs.copyFileSync(path.join(ROOT, 'assets/favicon.ico'), path.join(DIST, 'favicon.ico'));
 // robots.txt — let every crawler in and point them at the sitemap.
 fs.writeFileSync(
   path.join(DIST, 'robots.txt'),
