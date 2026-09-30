@@ -12,16 +12,16 @@
     "ja": "認証で裏付けられた品質"
   },
   "03": {
-    "th": "ออกโดย",
-    "en": "Issued by",
-    "zh": "发证机构",
-    "ja": "認証機関"
+    "th": "เอกสารรับรองฉบับจริง",
+    "en": "The actual certificates",
+    "zh": "证书原件",
+    "ja": "認証書の原本"
   },
   "04": {
-    "th": "เลขที่ใบรับรอง",
-    "en": "Certificate no.",
-    "zh": "证书编号",
-    "ja": "認証番号"
+    "th": "คลิกที่รูปเพื่อขยายดูรายละเอียด",
+    "en": "Click any image to zoom in",
+    "zh": "点击图片可放大查看详情",
+    "ja": "画像をクリックすると拡大表示できます"
   },
   "items": [
     {
@@ -33,14 +33,6 @@
         "en": "International food-safety management system.",
         "zh": "国际食品安全管理体系。",
         "ja": "国際的な食品安全マネジメントシステム。"
-      },
-      "issuer": "Bureau Veritas",
-      "number": "TH025460",
-      "expires": {
-        "th": "1 ส.ค. 2571 (2028)",
-        "en": "1 Aug 2028",
-        "zh": "2028年8月1日",
-        "ja": "2028年8月1日"
       }
     },
     {
@@ -52,14 +44,6 @@
         "en": "Hazard analysis and critical control points.",
         "zh": "危害分析与关键控制点。",
         "ja": "危害分析重要管理点（HACCP）。"
-      },
-      "issuer": "Bureau Veritas",
-      "number": "TH025467",
-      "expires": {
-        "th": "1 ส.ค. 2571 (2028)",
-        "en": "1 Aug 2028",
-        "zh": "2028年8月1日",
-        "ja": "2028年8月1日"
       }
     },
     {
@@ -71,27 +55,7 @@
         "en": "Good Hygiene Practices in food production.",
         "zh": "食品生产良好卫生规范。",
         "ja": "食品製造における適正衛生規範。"
-      },
-      "issuer": "Bureau Veritas",
-      "number": "TH025466",
-      "expires": {
-        "th": "1 ส.ค. 2571 (2028)",
-        "en": "1 Aug 2028",
-        "zh": "2028年8月1日",
-        "ja": "2028年8月1日"
       }
     }
-  ],
-  "05": {
-    "th": "ใช้ได้ถึง",
-    "en": "Valid until",
-    "zh": "有效期至",
-    "ja": "有効期限"
-  },
-  "06": {
-    "th": "ดูใบรับรอง",
-    "en": "View certificate",
-    "zh": "查看证书",
-    "ja": "認証書を見る"
-  }
+  ]
 }
