@@ -15,128 +15,107 @@
     {
       "logo": "client-ptt.png",
       "name": "PTT",
-      "size": "large",
-      "featured": true
+      "size": "large"
     },
     {
       "logo": "client-isuzu.png",
       "name": "Isuzu",
-      "size": "default",
-      "featured": false
+      "size": "default"
     },
     {
       "logo": "client-ea.png",
       "name": "Energy Absolute",
-      "size": "large",
-      "featured": false
+      "size": "large"
     },
     {
       "logo": "client-gulf.png",
       "name": "Gulf",
-      "size": "default",
-      "featured": true
+      "size": "default"
     },
     {
       "logo": "client-idemitsu.png",
       "name": "Idemitsu",
-      "size": "default",
-      "featured": false
+      "size": "default"
     },
     {
       "logo": "client-yazaki.png",
       "name": "Yazaki",
-      "size": "default",
-      "featured": true
+      "size": "default"
     },
     {
       "logo": "client-honda.png",
       "name": "Honda",
-      "size": "default",
-      "featured": true
+      "size": "default"
     },
     {
       "logo": "client-kubota.png",
       "name": "Kubota",
-      "size": "default",
-      "featured": true
+      "size": "default"
     },
     {
       "logo": "client-jtekt.jpg",
       "name": "JTEKT",
-      "size": "default",
-      "featured": false
+      "size": "default"
     },
     {
       "logo": "client-nutrix.svg",
       "name": "Nutrix",
-      "size": "small",
-      "featured": false
+      "size": "small"
     },
     {
       "logo": "client-autoliv.png",
       "name": "Autoliv",
-      "size": "default",
-      "featured": false
+      "size": "default"
     },
     {
       "logo": "client-ngk.png",
       "name": "NGK",
-      "size": "default",
-      "featured": false
+      "size": "default"
     },
     {
       "logo": "client-unicharm.svg",
       "name": "Unicharm",
-      "size": "default",
-      "featured": false
+      "size": "default"
     },
     {
       "logo": "client-isi.png",
       "name": "iSi Automotive",
-      "size": "default",
-      "featured": false
+      "size": "default"
     },
     {
       "logo": "client-gpx.png",
       "name": "GPX",
-      "size": "default",
-      "featured": false
+      "size": "default"
     },
     {
       "logo": "client-ctw.png",
       "name": "CTW",
-      "size": "default",
-      "featured": false
+      "size": "default"
     },
     {
       "logo": "client-gs.png",
       "name": "GS Battery",
-      "size": "default",
-      "featured": false
+      "size": "default"
     },
     {
       "logo": "client-unison.png",
       "name": "Unison",
-      "size": "default",
-      "featured": false
+      "size": "default"
     },
     {
       "logo": "client-mine.png",
       "name": "MINE Mobility",
-      "size": "large",
-      "featured": false
+      "size": "large"
     },
     {
       "logo": "client-sye.jpg",
       "name": "SYE",
-      "size": "default",
-      "featured": false
+      "size": "default"
     },
     {
       "logo": "client-stem.gif",
       "name": "STEM",
-      "size": "default",
-      "featured": false
+      "size": "default"
     }
   ]
 }

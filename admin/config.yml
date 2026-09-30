@@ -80,33 +80,6 @@ collections:
             - { name: en, label: "English", widget: string, required: true }
             - { name: zh, label: "中文", widget: string, required: true }
             - { name: ja, label: "日本語", widget: string, required: true }
-        - name: "07"
-          label: "แถบล่างมือถือ: โทร"
-          widget: object
-          collapsed: true
-          fields:
-            - { name: th, label: "ไทย", widget: string, required: true }
-            - { name: en, label: "English", widget: string, required: true }
-            - { name: zh, label: "中文", widget: string, required: true }
-            - { name: ja, label: "日本語", widget: string, required: true }
-        - name: "08"
-          label: "แถบล่างมือถือ: LINE"
-          widget: object
-          collapsed: true
-          fields:
-            - { name: th, label: "ไทย", widget: string, required: true }
-            - { name: en, label: "English", widget: string, required: true }
-            - { name: zh, label: "中文", widget: string, required: true }
-            - { name: ja, label: "日本語", widget: string, required: true }
-        - name: "09"
-          label: "แถบล่างมือถือ: ขอราคา"
-          widget: object
-          collapsed: true
-          fields:
-            - { name: th, label: "ไทย", widget: string, required: true }
-            - { name: en, label: "English", widget: string, required: true }
-            - { name: zh, label: "中文", widget: string, required: true }
-            - { name: ja, label: "日本語", widget: string, required: true }
     - name: menu
       label: "เมนูมือถือ"
       file: "content/menu.json"
@@ -254,15 +227,6 @@ collections:
             - { name: en, label: "English", widget: string, required: true }
             - { name: zh, label: "中文", widget: string, required: true }
             - { name: ja, label: "日本語", widget: string, required: true }
-        - name: "09"
-          label: "หัวแถวโลโก้ลูกค้าใน Hero"
-          widget: object
-          collapsed: true
-          fields:
-            - { name: th, label: "ไทย", widget: string, required: true }
-            - { name: en, label: "English", widget: string, required: true }
-            - { name: zh, label: "中文", widget: string, required: true }
-            - { name: ja, label: "日本語", widget: string, required: true }
     - name: marquee
       label: "แถบข้อความวิ่ง"
       file: "content/marquee.json"
@@ -403,15 +367,6 @@ collections:
             - { name: ja, label: "日本語", widget: string, required: true }
         - name: "07"
           label: "ครอบคลุมฉะเชิงเทรา ชลบุรี สมุทรปราการ"
-          widget: object
-          collapsed: true
-          fields:
-            - { name: th, label: "ไทย", widget: string, required: true }
-            - { name: en, label: "English", widget: string, required: true }
-            - { name: zh, label: "中文", widget: string, required: true }
-            - { name: ja, label: "日本語", widget: string, required: true }
-        - name: "08"
-          label: "ปุ่มเล่นวิดีโอ"
           widget: object
           collapsed: true
           fields:
@@ -615,7 +570,7 @@ collections:
             - { name: zh, label: "中文", widget: string, required: true }
             - { name: ja, label: "日本語", widget: string, required: true }
         - name: "03"
-          label: "ป้าย: ออกโดย"
+          label: "เอกสารรับรองฉบับจริง"
           widget: object
           collapsed: true
           fields:
@@ -624,25 +579,7 @@ collections:
             - { name: zh, label: "中文", widget: string, required: true }
             - { name: ja, label: "日本語", widget: string, required: true }
         - name: "04"
-          label: "ป้าย: เลขที่ใบรับรอง"
-          widget: object
-          collapsed: true
-          fields:
-            - { name: th, label: "ไทย", widget: string, required: true }
-            - { name: en, label: "English", widget: string, required: true }
-            - { name: zh, label: "中文", widget: string, required: true }
-            - { name: ja, label: "日本語", widget: string, required: true }
-        - name: "05"
-          label: "ป้าย: ใช้ได้ถึง"
-          widget: object
-          collapsed: true
-          fields:
-            - { name: th, label: "ไทย", widget: string, required: true }
-            - { name: en, label: "English", widget: string, required: true }
-            - { name: zh, label: "中文", widget: string, required: true }
-            - { name: ja, label: "日本語", widget: string, required: true }
-        - name: "06"
-          label: "ปุ่ม: ดูใบรับรอง"
+          label: "คลิกที่รูปเพื่อขยายดูรายละเอียด"
           widget: object
           collapsed: true
           fields:
@@ -662,17 +599,6 @@ collections:
           - { name: name, label: "ชื่อ", widget: string, required: true }
           - name: "note"
             label: "คำอธิบายใต้ใบรับรอง"
-            widget: object
-            collapsed: true
-            fields:
-              - { name: th, label: "ไทย", widget: string, required: true }
-              - { name: en, label: "English", widget: string, required: true }
-              - { name: zh, label: "中文", widget: string, required: true }
-              - { name: ja, label: "日本語", widget: string, required: true }
-          - { name: issuer, label: "ออกโดย (หน่วยรับรอง)", widget: string, required: true }
-          - { name: number, label: "เลขที่ใบรับรอง", widget: string, required: true }
-          - name: "expires"
-            label: "ใช้ได้ถึง (วันหมดอายุ)"
             widget: object
             collapsed: true
             fields:
@@ -713,7 +639,6 @@ collections:
           - { name: logo, label: "ไฟล์โลโก้", widget: image, media_folder: "/assets", public_folder: "assets", required: true }
           - { name: name, label: "ชื่อ", widget: string, required: true }
           - { name: size, label: "ขนาดโลโก้บนการ์ด", widget: select, default: "default", options: ["default", "large", "small"] }
-          - { name: featured, label: "แสดงใน Hero (เฉพาะโลโก้พื้นหลังโปร่งใส)", widget: boolean, default: false }
     - name: quote
       label: "ฟอร์มขอใบเสนอราคา"
       file: "content/quote.json"

@@ -86,19 +86,6 @@
     if (card) card.classList.toggle('open');
   }
 
-  // The about video shows a local poster first; YouTube's player (~1MB of
-  // script) only loads when someone actually presses play.
-  function playVideo(btn) {
-    var iframe = document.createElement('iframe');
-    iframe.src = 'https://www.youtube.com/embed/' + btn.getAttribute('data-yt') + '?autoplay=1&rel=0';
-    iframe.title = 'Pettubtim video';
-    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-    iframe.allowFullscreen = true;
-    iframe.className = 'video-frame';
-    btn.replaceWith(iframe);
-  }
-
-  window.playVideo = playVideo;
   window.toggleProcess = toggleProcess;
   window.setLang = setLang;
   window.toggleLangMenu = toggleLangMenu;
