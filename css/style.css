@@ -319,3 +319,82 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--accent,#1AB1E7);
 .faq-section{padding:110px 32px;background:#FAFDFF;scroll-margin-top:90px}
 .faq-list{max-width:820px;margin:40px auto 0}
 .faq-list .area-faq-item p{font:400 15px/1.8 'Anuphan',sans-serif;color:#33475A}
+
+/* ---- extra motion ----
+   js/main.js tags elements with [data-reveal] (only when JS runs, so the page
+   still shows everything without it) and adds the bubbles / progress bar.
+   Everything here is switched off by [data-motion="off"], which main.js sets
+   when the visitor's OS asks for reduced motion. */
+@keyframes fadeLeft{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
+@keyframes fadeRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+@keyframes zoomIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+@keyframes floatT{0%,100%{translate:0 0}50%{translate:0 -14px}}
+@keyframes bubbleUp{0%{transform:translate(0,0) scale(.6);opacity:0}12%{opacity:var(--bo,.6)}100%{transform:translate(var(--bx,20px),-110vh) scale(1);opacity:0}}
+@keyframes sheen{0%,62%{transform:translateX(-120%) skewX(-18deg)}100%{transform:translateX(260%) skewX(-18deg)}}
+@keyframes clickRipple{from{transform:translate(-50%,-50%) scale(0);opacity:.55}to{transform:translate(-50%,-50%) scale(1);opacity:0}}
+@keyframes faqOpen{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@keyframes glowPulse{0%,100%{opacity:1}50%{opacity:.65}}
+[data-reveal].in{animation-delay:var(--rd,0ms)}
+[data-reveal="left"].in{animation-name:fadeLeft}
+[data-reveal="right"].in{animation-name:fadeRight}
+[data-reveal="zoom"].in{animation-name:zoomIn}
+
+/* scroll progress bar + nav that tightens once the page scrolls */
+.scroll-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:120;background:linear-gradient(90deg,#0E93C7,#1AB1E7,#7FD9F7);transform-origin:0 50%;transform:scaleX(0);pointer-events:none}
+.nav-wrap{transition:top .35s ease}
+.nav-bar{transition:background-color .35s ease,box-shadow .35s ease,padding .35s ease}
+.nav-wrap.scrolled{top:8px}
+.nav-wrap.scrolled .nav-bar{background:rgba(6,22,34,.92);padding-top:6px;padding-bottom:6px;box-shadow:0 18px 40px -18px rgba(0,0,0,.8)}
+.nav-link{position:relative;transition:color .2s}
+.nav-link::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;border-radius:2px;background:var(--accent,#1AB1E7);transform:scaleX(0);transition:transform .3s cubic-bezier(.16,.84,.44,1)}
+.nav-link:hover{color:#fff}
+.nav-link:hover::after{transform:scaleX(1)}
+
+/* hero: rising bubbles, floating + tilting product card with a light sheen */
+.hero-glow{animation:glowPulse 8s ease-in-out infinite}
+.hero-bubbles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.hero-bubble{position:absolute;bottom:-40px;border-radius:50%;background:radial-gradient(circle at 32% 30%,rgba(255,255,255,.9),rgba(127,217,247,.35) 40%,rgba(26,177,231,.1) 72%);border:1px solid rgba(127,217,247,.55);box-shadow:0 0 12px rgba(127,217,247,.25);opacity:0;animation:bubbleUp var(--bd,12s) linear var(--bdl,0s) infinite}
+.hero-card{animation:floatT 7s ease-in-out infinite;transition:transform .5s cubic-bezier(.16,.84,.44,1);transform-style:preserve-3d;will-change:transform}
+.hero-card .img-ph::after{content:"";position:absolute;top:0;bottom:0;left:0;width:40%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);animation:sheen 6s ease-in-out 1.5s infinite;pointer-events:none}
+
+/* buttons: lift, light sweep on hover, ripple from the click point */
+.btn-primary-lg,.btn-primary,.btn-ghost-lg,.nav-cta,.btn-submit,.contact-cta,.mobile-menu-cta,.btn-soft{position:relative;overflow:hidden;isolation:isolate;transition:transform .25s cubic-bezier(.16,.84,.44,1),box-shadow .25s,background-color .25s}
+.btn-primary-lg::before,.btn-primary::before,.nav-cta::before,.btn-submit::before,.contact-cta::before{content:"";position:absolute;top:0;bottom:0;left:0;width:45%;z-index:-1;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:translateX(-130%) skewX(-18deg);transition:transform .7s ease}
+.btn-primary-lg:hover::before,.btn-primary:hover::before,.nav-cta:hover::before,.btn-submit:hover::before,.contact-cta:hover::before{transform:translateX(300%) skewX(-18deg)}
+.btn-primary-lg:hover,.btn-primary:hover,.btn-submit:hover,.contact-cta:hover,.nav-cta:hover{transform:translateY(-2px);box-shadow:0 20px 40px -14px rgba(26,177,231,.8)}
+.btn-primary-lg:hover,.btn-primary:hover,.contact-cta:hover,.mobile-menu-cta:hover{color:#06202F}
+.nav-cta:hover{color:#fff}
+.btn-ghost-lg:hover{transform:translateY(-2px);background:rgba(255,255,255,.12);color:#fff}
+.btn-primary-lg:active,.btn-primary:active,.btn-submit:active,.btn-ghost-lg:active{transform:translateY(0) scale(.98)}
+.click-ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.55);pointer-events:none;z-index:-1;animation:clickRipple .65s ease-out forwards}
+
+/* cards lift on hover; photos zoom inside their frames */
+.about-card,.process-card,.cert-card,.client-badge,.size-card,.contact-card,.map-card{transition:transform .35s cubic-bezier(.16,.84,.44,1),box-shadow .35s,border-color .35s,background-color .35s}
+.about-card:hover,.process-card:hover,.cert-card:hover{transform:translateY(-6px);border-color:#BFE6F7;box-shadow:0 26px 50px -26px rgba(12,58,84,.45)}
+.process-img img,.product-photo img{transition:transform .8s cubic-bezier(.16,.84,.44,1)}
+.process-card:hover .process-img img{transform:scale(1.07)}
+.product-feature:hover .product-photo img{transform:scale(1.04)}
+.process-num{transition:color .35s}
+.process-card:hover .process-num{color:var(--accent,#1AB1E7)}
+.cert-photo{transition:transform .5s cubic-bezier(.16,.84,.44,1)}
+.cert-card:hover .cert-photo{transform:scale(1.03)}
+.size-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.1);border-color:rgba(127,217,247,.55);box-shadow:0 20px 40px -22px rgba(26,177,231,.6)}
+.client-badge:hover{transform:translateY(-4px) scale(1.03);border-color:#BFE6F7;box-shadow:0 18px 34px -20px rgba(12,58,84,.4)}
+.client-badge img{transition:transform .35s}
+.contact-icon{transition:transform .35s cubic-bezier(.16,.84,.44,1),background-color .35s}
+.contact-row:hover .contact-icon{transform:rotate(-8deg) scale(1.08);background:#CDEFFC}
+.area-link-card:hover{box-shadow:0 18px 36px -20px rgba(12,58,84,.4)}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.area-faq-item{transition:border-color .25s,box-shadow .25s}
+.area-faq-item:hover{border-color:#BFE6F7}
+.area-faq-item[open]{border-color:#BFE6F7;box-shadow:0 12px 30px -22px rgba(12,58,84,.45)}
+.area-faq-item[open] > p{animation:faqOpen .35s ease}
+
+[data-motion="off"] .hero-bubbles,[data-motion="off"] .hero-card .img-ph::after{display:none}
+[data-motion="off"] .hero-card,[data-motion="off"] .hero-glow,[data-motion="off"] .marquee-track{animation:none}
+@media (prefers-reduced-motion:reduce){
+  .hero-bubbles,.hero-card .img-ph::after,.click-ripple{display:none}
+  .hero-card,.hero-glow,.marquee-track,.hero-ripple-1,.hero-ripple-2,.hero-ripple-3,.hero-badge-dot{animation:none}
+  *,*::before,*::after{transition-duration:.01ms !important}
+  html{scroll-behavior:auto}
+}
