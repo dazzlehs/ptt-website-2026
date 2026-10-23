@@ -27,7 +27,7 @@ keyword เป้าหมาย: น้ำดื่ม · โรงงานผ
 
 ## สิ่งที่ต้องทำนอกโค้ด (สำคัญพอ ๆ กัน)
 
-1. **Google Search Console** — ยืนยันโดเมน pettubtim.com → ส่ง `https://pettubtim.com/sitemap.xml`
+1. **Google Search Console** — ยืนยันโดเมน pettubtim.com (ใช้ property แบบ Domain จะครอบคลุมทั้ง www และไม่มี www) → ส่ง `https://www.pettubtim.com/sitemap.xml`
    → ใช้ URL Inspection กด "Request indexing" ทีละหน้าพื้นที่
 2. **Google Business Profile** (สำคัญที่สุดสำหรับคำค้นแบบพื้นที่ ซึ่ง Google มักโชว์แผนที่ก่อนผลเว็บ)
    - ใช้ชื่อ/ที่อยู่/เบอร์ ให้ตรงกับบนเว็บทุกตัวอักษร

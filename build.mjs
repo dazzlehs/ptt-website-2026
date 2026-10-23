@@ -11,7 +11,7 @@ const LANGS = ['th', 'en', 'zh', 'ja'];
 const DIST = path.join(ROOT, 'dist');
 // Canonical production origin. Used for robots.txt, sitemap.xml and the
 // canonical/og URLs in the page. No trailing slash. Change here if the domain moves.
-const SITE_URL = 'https://pettubtim.com';
+const SITE_URL = 'https://www.pettubtim.com';
 
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 const readJSON = (p) => JSON.parse(read(p));
