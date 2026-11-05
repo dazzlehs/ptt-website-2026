@@ -989,6 +989,346 @@ collections:
             fields:
               - { name: q, label: "คำถาม", widget: string }
               - { name: a, label: "คำตอบ", widget: text }
+    - name: oem
+      label: "รับผลิตน้ำดื่ม OEM"
+      file: "content/oem.json"
+      format: json
+      fields:
+        - name: "01"
+          label: "ข้อความ 01: รับผลิตน้ำดื่ม OEM"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "02"
+          label: "ข้อความ 02: น้ำดื่มในแบรนด์ของท่าน"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "03"
+          label: "ข้อความ 03: ทุกขวดที่ลูกค้าหยิบขึ้นมาดื่มคือโอกาสให้แบรนด์ของท่านถูกจดจำ เราดูแลให้ครบตั้งแต่ออกแบบฉลาก ขอเลข อย. จนผลิตและส่งถึงมือ โดยท่านไม่ต้องลงทุนเครื่องจักรเอง"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "04"
+          label: "ข้อความ 04: ราคาเริ่มต้น"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "05"
+          label: "ข้อความ 05: บาท / แพ็ค"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "06"
+          label: "ข้อความ 06: ขวดที่รับผลิต"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "07"
+          label: "ข้อความ 07: ขวดทรงกลม"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "08"
+          label: "ข้อความ 08: 12 ขวด / แพ็ค"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "09"
+          label: "ข้อความ 09: บาท / แพ็ค"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "10"
+          label: "ข้อความ 10: ค่าใช้จ่ายมีอะไรบ้าง"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "11"
+          label: "ข้อความ 11: ตัวอย่างการคำนวณ"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "12"
+          label: "ข้อความ 12: สั่งขวด 350 มล. 200 แพ็ค ฉลาก 50,000 ชิ้น แม่พิมพ์ 2 สี"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "13"
+          label: "ข้อความ 13: สั่งผลิตรอบแรก"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "14"
+          label: "ข้อความ 14: ฉลาก 50,000 × 0.18"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "15"
+          label: "ข้อความ 15: แม่พิมพ์ 2 สี × 3,000"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "16"
+          label: "ข้อความ 16: น้ำดื่ม 200 แพ็ค × 40"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "17"
+          label: "ข้อความ 17: รวม"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "18"
+          label: "ข้อความ 18: รอบถัดไป (200 แพ็ค)"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "19"
+          label: "ข้อความ 19: จ่ายแค่ค่าน้ำ เพราะฉลากและแม่พิมพ์ชำระไปแล้ว"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "20"
+          label: "ข้อความ 20: บาท"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "21"
+          label: "ข้อความ 21: 9 ขั้นตอน ได้น้ำดื่มแบรนด์ท่านใน 30 วัน"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "22"
+          label: "ข้อความ 22: วัน"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "24"
+          label: "ข้อความ 24: ปรึกษาเรื่อง OEM"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "25"
+          label: "ข้อความ 25: หรือโทร"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "26"
+          label: "ข้อความ 26: รวม 30 วัน"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: reasons
+          label: "จุดเด่น"
+          widget: list
+          collapsed: true
+          fields:
+            - name: "title"
+              label: "หัวข้อ"
+              widget: object
+              collapsed: true
+              fields:
+                - { name: th, label: "ไทย", widget: string, required: true }
+                - { name: en, label: "English", widget: string, required: true }
+                - { name: zh, label: "中文", widget: string, required: true }
+                - { name: ja, label: "日本語", widget: string, required: true }
+            - name: "desc"
+              label: "คำอธิบาย"
+              widget: object
+              collapsed: true
+              fields:
+                - { name: th, label: "ไทย", widget: string, required: true }
+                - { name: en, label: "English", widget: string, required: true }
+                - { name: zh, label: "中文", widget: string, required: true }
+                - { name: ja, label: "日本語", widget: string, required: true }
+        - name: costs
+          label: "ค่าใช้จ่าย"
+          widget: list
+          collapsed: true
+          fields:
+            - { name: when, label: "ประเภท", widget: select, options: [every, first] }
+            - name: "name"
+              label: "ชื่อ"
+              widget: object
+              collapsed: true
+              fields:
+                - { name: th, label: "ไทย", widget: string, required: true }
+                - { name: en, label: "English", widget: string, required: true }
+                - { name: zh, label: "中文", widget: string, required: true }
+                - { name: ja, label: "日本語", widget: string, required: true }
+            - name: "amount"
+              label: "ราคา"
+              widget: object
+              collapsed: true
+              fields:
+                - { name: th, label: "ไทย", widget: string, required: true }
+                - { name: en, label: "English", widget: string, required: true }
+                - { name: zh, label: "中文", widget: string, required: true }
+                - { name: ja, label: "日本語", widget: string, required: true }
+            - name: "unit"
+              label: "หน่วย"
+              widget: object
+              collapsed: true
+              fields:
+                - { name: th, label: "ไทย", widget: string, required: true }
+                - { name: en, label: "English", widget: string, required: true }
+                - { name: zh, label: "中文", widget: string, required: true }
+                - { name: ja, label: "日本語", widget: string, required: true }
+            - name: "note"
+              label: "หมายเหตุ"
+              widget: object
+              collapsed: true
+              fields:
+                - { name: th, label: "ไทย", widget: string, required: true }
+                - { name: en, label: "English", widget: string, required: true }
+                - { name: zh, label: "中文", widget: string, required: true }
+                - { name: ja, label: "日本語", widget: string, required: true }
+            - name: "whenLabel"
+              label: "ป้าย (ทุกรอบ/ครั้งแรก)"
+              widget: object
+              collapsed: true
+              fields:
+                - { name: th, label: "ไทย", widget: string, required: true }
+                - { name: en, label: "English", widget: string, required: true }
+                - { name: zh, label: "中文", widget: string, required: true }
+                - { name: ja, label: "日本語", widget: string, required: true }
+        - name: steps
+          label: "ขั้นตอน"
+          widget: list
+          collapsed: true
+          fields:
+            - { name: days, label: "จำนวนวัน", widget: string }
+            - name: "title"
+              label: "ขั้นตอน"
+              widget: object
+              collapsed: true
+              fields:
+                - { name: th, label: "ไทย", widget: string, required: true }
+                - { name: en, label: "English", widget: string, required: true }
+                - { name: zh, label: "中文", widget: string, required: true }
+                - { name: ja, label: "日本語", widget: string, required: true }
+        - name: notes
+          label: "หมายเหตุ"
+          widget: list
+          collapsed: true
+          fields:
+            - name: "text"
+              label: "ข้อความ"
+              widget: object
+              collapsed: true
+              fields:
+                - { name: th, label: "ไทย", widget: string, required: true }
+                - { name: en, label: "English", widget: string, required: true }
+                - { name: zh, label: "中文", widget: string, required: true }
+                - { name: ja, label: "日本語", widget: string, required: true }
+        - name: bottles
+          label: "ขวด"
+          widget: list
+          collapsed: true
+          fields:
+            - { name: volume, label: "ขนาด (มล.)", widget: string }
+            - { name: height, label: "ความสูงรูป (s/l)", widget: select, options: [s, l] }
     - name: faq
       label: "คำถามที่พบบ่อย (หน้าแรก)"
       file: "content/faq.json"
