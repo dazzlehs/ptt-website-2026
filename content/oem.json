@@ -414,10 +414,10 @@
   "notes": [
     {
       "text": {
-        "th": "ราคาน้ำและฉลากเป็นราคาเริ่มต้น ราคาจริงขึ้นอยู่กับจำนวนที่สั่งผลิต สั่งน้อยราคาต่อแพ็คจะสูงขึ้น",
-        "en": "Water and label prices are starting prices; the actual price depends on quantity — smaller orders cost more per pack",
-        "zh": "水和标签价格为起价，实际价格视订量而定，订量少则单价较高",
-        "ja": "飲料水・ラベルは最低価格です。実際の価格は数量により異なり、少量の場合は割高になります"
+        "th": "ราคาน้ำและฉลากเป็นราคาเริ่มต้น ราคาจริงขึ้นอยู่กับจำนวนที่สั่งผลิต",
+        "en": "Water and label prices are starting prices; the actual price depends on quantity",
+        "zh": "水和标签价格为起价，实际价格视订量而定",
+        "ja": "飲料水・ラベルは最低価格です。実際の価格は数量により異なります"
       }
     },
     {
