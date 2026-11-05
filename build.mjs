@@ -5,6 +5,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import crypto from 'node:crypto';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const LANGS = ['th', 'en', 'zh', 'ja'];
@@ -80,8 +81,16 @@ function renderEach(listPath, body) {
     .join('');
 }
 
+// HTML is served no-cache but CSS/JS are not, so a browser can pair fresh HTML
+// with a stale stylesheet. Append a content hash to their URLs so every change
+// to css/style.css or js/main.js is a new URL that has to be downloaded.
+const assetVersion = (p) => crypto.createHash('sha1').update(read(p)).digest('hex').slice(0, 10);
+const ASSET_VERSIONS = { 'css/style.css': assetVersion('css/style.css'), 'js/main.js': assetVersion('js/main.js') };
+const versionAssets = (html) =>
+  html.replace(/((?:href|src)="\/?)(css\/style\.css|js\/main\.js)"/g, (_, pre, p) => `${pre}${p}?v=${ASSET_VERSIONS[p]}"`);
+
 function render(template, label) {
-  const out = template
+  const out = versionAssets(template)
     .replace(/\{\{#each ([\w.]+)\}\}([\s\S]*?)\{\{\/each\}\}/g, (_, listPath, body) => renderEach(listPath, body))
     .replace(/\{\{t:([\w.]+)\}\}/g, (_, key) => renderGroup(key));
   const unresolved = out.match(/\{\{[^}]*\}\}/g);
