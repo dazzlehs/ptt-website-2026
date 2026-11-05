@@ -1094,7 +1094,7 @@ collections:
             - { name: zh, label: "中文", widget: string, required: true }
             - { name: ja, label: "日本語", widget: string, required: true }
         - name: "12"
-          label: "ข้อความ 12: สั่งขวด 350 มล. 200 แพ็ค ฉลาก 50,000 ชิ้น แม่พิมพ์ 2 สี"
+          label: "ข้อความ 12: ขวด 350 มล. 200 แพ็ค · ฉลาก 50,000 ชิ้น · แม่พิมพ์ 2 สี (คิดจากราคาเริ่มต้น)"
           widget: object
           collapsed: true
           fields:
@@ -1103,7 +1103,7 @@ collections:
             - { name: zh, label: "中文", widget: string, required: true }
             - { name: ja, label: "日本語", widget: string, required: true }
         - name: "13"
-          label: "ข้อความ 13: สั่งผลิตรอบแรก"
+          label: "ข้อความ 13: รอบแรก"
           widget: object
           collapsed: true
           fields:
@@ -1148,7 +1148,7 @@ collections:
             - { name: zh, label: "中文", widget: string, required: true }
             - { name: ja, label: "日本語", widget: string, required: true }
         - name: "18"
-          label: "ข้อความ 18: รอบถัดไป (200 แพ็ค)"
+          label: "ข้อความ 18: รอบถัดไป"
           widget: object
           collapsed: true
           fields:
@@ -1157,7 +1157,7 @@ collections:
             - { name: zh, label: "中文", widget: string, required: true }
             - { name: ja, label: "日本語", widget: string, required: true }
         - name: "19"
-          label: "ข้อความ 19: จ่ายแค่ค่าน้ำ เพราะฉลากและแม่พิมพ์ชำระไปแล้ว"
+          label: "ข้อความ 19: รอบถัดไปจ่ายแค่ค่าน้ำ เพราะฉลากและแม่พิมพ์ชำระไปแล้ว"
           widget: object
           collapsed: true
           fields:
@@ -1219,6 +1219,15 @@ collections:
             - { name: en, label: "English", widget: string, required: true }
             - { name: zh, label: "中文", widget: string, required: true }
             - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "27"
+          label: "ข้อความ 27: เริ่มต้น"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
         - name: reasons
           label: "จุดเด่น"
           widget: list
@@ -1226,15 +1235,6 @@ collections:
           fields:
             - name: "title"
               label: "หัวข้อ"
-              widget: object
-              collapsed: true
-              fields:
-                - { name: th, label: "ไทย", widget: string, required: true }
-                - { name: en, label: "English", widget: string, required: true }
-                - { name: zh, label: "中文", widget: string, required: true }
-                - { name: ja, label: "日本語", widget: string, required: true }
-            - name: "desc"
-              label: "คำอธิบาย"
               widget: object
               collapsed: true
               fields:
@@ -1257,6 +1257,15 @@ collections:
                 - { name: en, label: "English", widget: string, required: true }
                 - { name: zh, label: "中文", widget: string, required: true }
                 - { name: ja, label: "日本語", widget: string, required: true }
+            - name: "prefix"
+              label: "คำนำหน้าราคา (เช่น เริ่มต้น) — เว้นว่างได้"
+              widget: object
+              collapsed: true
+              fields:
+                - { name: th, label: "ไทย", widget: string, required: false }
+                - { name: en, label: "English", widget: string, required: false }
+                - { name: zh, label: "中文", widget: string, required: false }
+                - { name: ja, label: "日本語", widget: string, required: false }
             - name: "amount"
               label: "ราคา"
               widget: object

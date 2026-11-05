@@ -435,12 +435,7 @@
             <span class="oem-price-unit">{{t:oem.05}}</span>
           </div>
           <ul class="oem-reasons">
-            {{#each oem.reasons}}
-            <li class="oem-reason">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7FD9F7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
-              <div><div class="oem-reason-title">{{t.title}}</div><p class="oem-reason-desc">{{t.desc}}</p></div>
-            </li>
-            {{/each}}
+            {{#each oem.reasons}}<li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7FD9F7" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>{{t.title}}</li>{{/each}}
           </ul>
         </div>
         <div class="oem-bottles-card">
@@ -459,11 +454,11 @@
                 <rect x="19" y="111" width="22" height="3" rx="1.5" fill="#0C3A54" opacity=".55"></rect>
               </svg>
               <div class="oem-bottle-vol">{{it.volume}} <span>ml</span></div>
-              <div class="oem-bottle-meta">{{t:oem.07}} · {{t:oem.08}}</div>
             </div>
             {{/each}}
           </div>
-          <div class="oem-bottles-price"><b>40</b> {{t:oem.09}}</div>
+          <div class="oem-bottle-meta">{{t:oem.07}} · {{t:oem.08}}</div>
+          <div class="oem-bottles-price">{{t:oem.04}} <b>40</b> {{t:oem.09}}</div>
         </div>
       </div>
 
@@ -472,62 +467,54 @@
       <div class="oem-costs">
         {{#each oem.costs}}
         <div class="oem-cost oem-cost-{{it.when}}">
-          <span class="oem-cost-when">{{t.whenLabel}}</span>
-          <div class="oem-cost-name">{{t.name}}</div>
-          <div class="oem-cost-amount">{{t.amount}}</div>
-          <div class="oem-cost-unit">{{t.unit}}</div>
+          <div class="oem-cost-top"><span class="oem-cost-name">{{t.name}}</span><span class="oem-cost-when">{{t.whenLabel}}</span></div>
+          <div class="oem-cost-amount"><small>{{t.prefix}}</small>{{t.amount}} <span class="oem-cost-unit">{{t.unit}}</span></div>
           <p class="oem-cost-note">{{t.note}}</p>
         </div>
         {{/each}}
       </div>
 
-      <!-- worked example -->
-      <div class="oem-example">
-        <div class="oem-example-head">
-          <div class="oem-card-label">{{t:oem.11}}</div>
-          <div class="oem-example-sub">{{t:oem.12}}</div>
+      <div class="oem-split">
+        <!-- worked example -->
+        <div class="oem-example">
+          <h3 class="oem-h3 oem-h3-tight">{{t:oem.11}}</h3>
+          <p class="oem-example-sub">{{t:oem.12}}</p>
+          <table class="oem-bill">
+            <thead><tr><th></th><th>{{t:oem.13}}</th><th>{{t:oem.18}}</th></tr></thead>
+            <tbody>
+              <tr><td>{{t:oem.14}}</td><td>9,000</td><td class="oem-dash">–</td></tr>
+              <tr><td>{{t:oem.15}}</td><td>6,000</td><td class="oem-dash">–</td></tr>
+              <tr><td>{{t:oem.16}}</td><td>8,000</td><td>8,000</td></tr>
+            </tbody>
+            <tfoot><tr><td>{{t:oem.17}} ({{t:oem.20}})</td><td>23,000</td><td>8,000</td></tr></tfoot>
+          </table>
+          <p class="oem-bill-note">{{t:oem.19}}</p>
         </div>
-        <div class="oem-example-cols">
-          <div class="oem-bill">
-            <div class="oem-bill-title">{{t:oem.13}}</div>
-            <div class="oem-bill-row"><span>{{t:oem.14}}</span><span>9,000</span></div>
-            <div class="oem-bill-row"><span>{{t:oem.15}}</span><span>6,000</span></div>
-            <div class="oem-bill-row"><span>{{t:oem.16}}</span><span>8,000</span></div>
-            <div class="oem-bill-total"><span>{{t:oem.17}}</span><span><b>23,000</b> {{t:oem.20}}</span></div>
-          </div>
-          <div class="oem-bill oem-bill-repeat">
-            <div class="oem-bill-title">{{t:oem.18}}</div>
-            <div class="oem-bill-row"><span>{{t:oem.16}}</span><span>8,000</span></div>
-            <p class="oem-bill-note">{{t:oem.19}}</p>
-            <div class="oem-bill-total"><span>{{t:oem.17}}</span><span><b>8,000</b> {{t:oem.20}}</span></div>
-          </div>
-        </div>
-      </div>
 
-      <!-- timeline -->
-      <div class="oem-steps-head">
-        <h3 class="oem-h3">{{t:oem.21}}</h3>
+        <!-- timeline -->
+        <div class="oem-timeline">
+          <h3 class="oem-h3 oem-h3-tight">{{t:oem.21}}</h3>
+          <div class="oem-bar" aria-hidden="true">
+            {{#each oem.steps}}<span class="oem-bar-seg" style="flex:{{it.days}}">{{@n}}</span>{{/each}}
+          </div>
+          <ol class="oem-steps">
+            {{#each oem.steps}}
+            <li class="oem-step">
+              <span class="oem-step-num">{{@n}}</span>
+              <span class="oem-step-title">{{t.title}}</span>
+              <span class="oem-step-days">{{it.days}} {{t:oem.22}}</span>
+            </li>
+            {{/each}}
+          </ol>
+        </div>
       </div>
-      <div class="oem-bar" aria-hidden="true">
-        {{#each oem.steps}}<span class="oem-bar-seg" style="flex:{{it.days}}">{{@n}}</span>{{/each}}
-      </div>
-      <div class="oem-bar-total">{{t:oem.26}}</div>
-      <ol class="oem-steps">
-        {{#each oem.steps}}
-        <li class="oem-step">
-          <span class="oem-step-num">{{@n}}</span>
-          <span class="oem-step-title">{{t.title}}</span>
-          <span class="oem-step-days">{{it.days}} {{t:oem.22}}</span>
-        </li>
-        {{/each}}
-      </ol>
 
       <div class="oem-foot">
         <ul class="oem-notes">
           {{#each oem.notes}}<li>{{t.text}}</li>{{/each}}
         </ul>
         <div class="oem-cta">
-          <a class="btn-primary-lg" href="#quote" onclick="var s=document.getElementById('q-product');if(s)s.value='OEM / ติดแบรนด์'">{{t:oem.24}}</a>
+          <a class="btn-primary" href="#quote" onclick="var s=document.getElementById('q-product');if(s)s.value='OEM / ติดแบรนด์'">{{t:oem.24}}</a>
           <span class="oem-cta-phone">{{t:oem.25}} <a href="tel:038595888">038-595-888</a></span>
         </div>
       </div>
