@@ -420,6 +420,107 @@
     </div>
   </section>
 
+  <!-- ============ OEM / PRIVATE LABEL ============ -->
+  <section class="oem-section" id="oem" data-screen-label="OEM" data-sec="">
+    <div class="oem-glow" aria-hidden="true"></div>
+    <div class="container relative">
+      <div class="oem-hero">
+        <div class="oem-intro">
+          <span class="eyebrow-light">{{t:oem.01}}</span>
+          <h2 class="oem-title">{{t:oem.02}}</h2>
+          <p class="oem-lead">{{t:oem.03}}</p>
+          <div class="oem-price">
+            <span class="oem-price-from">{{t:oem.04}}</span>
+            <span class="oem-price-num">40</span>
+            <span class="oem-price-unit">{{t:oem.05}}</span>
+          </div>
+          <ul class="oem-reasons">
+            {{#each oem.reasons}}<li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7FD9F7" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>{{t.title}}</li>{{/each}}
+          </ul>
+        </div>
+        <div class="oem-bottles-card">
+          <div class="oem-card-label">{{t:oem.06}}</div>
+          <div class="oem-bottles">
+            {{#each oem.bottles}}
+            <div class="oem-bottle">
+              <svg class="oem-bottle-svg oem-bottle-{{it.height}}" viewBox="0 0 60 170" aria-hidden="true">
+                <rect x="21" y="0" width="18" height="11" rx="2.5" fill="#1AB1E7"></rect>
+                <rect x="19" y="10" width="22" height="4" rx="1.5" fill="#0E93C7"></rect>
+                <path d="M23 14h14v8c0 7 15 11 15 25v110c0 7-5 12-12 12H20c-7 0-12-5-12-12V47c0-14 15-18 15-25z" fill="rgba(127,217,247,.16)" stroke="rgba(127,217,247,.7)" stroke-width="1.6"></path>
+                <path d="M14 56v96" stroke="rgba(255,255,255,.35)" stroke-width="3" stroke-linecap="round"></path>
+                <rect x="8.8" y="78" width="42.4" height="46" fill="#fff"></rect>
+                <rect x="8.8" y="78" width="42.4" height="7" fill="#1AB1E7"></rect>
+                <circle cx="30" cy="99" r="7" fill="none" stroke="#0C3A54" stroke-width="2"></circle>
+                <rect x="19" y="111" width="22" height="3" rx="1.5" fill="#0C3A54" opacity=".55"></rect>
+              </svg>
+              <div class="oem-bottle-vol">{{it.volume}} <span>ml</span></div>
+            </div>
+            {{/each}}
+          </div>
+          <div class="oem-bottle-meta">{{t:oem.07}} · {{t:oem.08}}</div>
+          <div class="oem-bottles-price">{{t:oem.04}} <b>40</b> {{t:oem.09}}</div>
+        </div>
+      </div>
+
+      <!-- costs -->
+      <h3 class="oem-h3">{{t:oem.10}}</h3>
+      <div class="oem-costs">
+        {{#each oem.costs}}
+        <div class="oem-cost oem-cost-{{it.when}}">
+          <div class="oem-cost-top"><span class="oem-cost-name">{{t.name}}</span><span class="oem-cost-when">{{t.whenLabel}}</span></div>
+          <div class="oem-cost-amount"><small>{{t.prefix}}</small>{{t.amount}} <span class="oem-cost-unit">{{t.unit}}</span></div>
+          <p class="oem-cost-note">{{t.note}}</p>
+        </div>
+        {{/each}}
+      </div>
+
+      <div class="oem-split">
+        <!-- worked example -->
+        <div class="oem-example">
+          <h3 class="oem-h3 oem-h3-tight">{{t:oem.11}}</h3>
+          <p class="oem-example-sub">{{t:oem.12}}</p>
+          <table class="oem-bill">
+            <thead><tr><th></th><th>{{t:oem.13}}</th><th>{{t:oem.18}}</th></tr></thead>
+            <tbody>
+              <tr><td>{{t:oem.14}}</td><td>9,000</td><td class="oem-dash">–</td></tr>
+              <tr><td>{{t:oem.15}}</td><td>6,000</td><td class="oem-dash">–</td></tr>
+              <tr><td>{{t:oem.16}}</td><td>8,000</td><td>8,000</td></tr>
+            </tbody>
+            <tfoot><tr><td>{{t:oem.17}} ({{t:oem.20}})</td><td>23,000</td><td>8,000</td></tr></tfoot>
+          </table>
+          <p class="oem-bill-note">{{t:oem.19}}</p>
+        </div>
+
+        <!-- timeline -->
+        <div class="oem-timeline">
+          <h3 class="oem-h3 oem-h3-tight">{{t:oem.21}}</h3>
+          <div class="oem-bar" aria-hidden="true">
+            {{#each oem.steps}}<span class="oem-bar-seg" style="flex:{{it.days}}">{{@n}}</span>{{/each}}
+          </div>
+          <ol class="oem-steps">
+            {{#each oem.steps}}
+            <li class="oem-step">
+              <span class="oem-step-num">{{@n}}</span>
+              <span class="oem-step-text"><span class="oem-step-title">{{t.title}}</span><span class="oem-step-desc">{{t.desc}}</span></span>
+              <span class="oem-step-days">{{it.days}} {{t:oem.22}}</span>
+            </li>
+            {{/each}}
+          </ol>
+        </div>
+      </div>
+
+      <div class="oem-foot">
+        <ul class="oem-notes">
+          {{#each oem.notes}}<li>{{t.text}}</li>{{/each}}
+        </ul>
+        <div class="oem-cta">
+          <a class="btn-primary" href="#quote" onclick="var s=document.getElementById('q-product');if(s)s.value='OEM / ติดแบรนด์'">{{t:oem.24}}</a>
+          <span class="oem-cta-phone">{{t:oem.25}} <a href="tel:038595888">038-595-888</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ FAQ ============ -->
   <section class="faq-section" id="faq" data-screen-label="FAQ" data-sec="">
     <div class="container">
