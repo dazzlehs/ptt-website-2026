@@ -1309,7 +1309,16 @@ collections:
           fields:
             - { name: days, label: "จำนวนวัน", widget: string }
             - name: "title"
-              label: "ขั้นตอน"
+              label: "หัวข้อ"
+              widget: object
+              collapsed: true
+              fields:
+                - { name: th, label: "ไทย", widget: string, required: true }
+                - { name: en, label: "English", widget: string, required: true }
+                - { name: zh, label: "中文", widget: string, required: true }
+                - { name: ja, label: "日本語", widget: string, required: true }
+            - name: "desc"
+              label: "คำอธิบาย"
               widget: object
               collapsed: true
               fields:

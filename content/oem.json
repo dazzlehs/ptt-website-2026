@@ -66,10 +66,10 @@
     "ja": "バーツ"
   },
   "21": {
-    "th": "9 ขั้นตอน ได้น้ำดื่มแบรนด์ท่านใน 30 วัน",
-    "en": "9 steps — your brand on the shelf in 30 days",
-    "zh": "9 个步骤，30 天拿到您的品牌水",
-    "ja": "9ステップ・30日でお届け"
+    "th": "4 ขั้นตอน ได้น้ำดื่มแบรนด์ท่านใน 30 วัน",
+    "en": "4 steps — your branded water in 30 days",
+    "zh": "4 个步骤，30 天拿到您的品牌水",
+    "ja": "4ステップ・30日でお届け"
   },
   "22": {
     "th": "วัน",
@@ -351,84 +351,63 @@
   ],
   "steps": [
     {
-      "days": "1",
+      "days": "3",
       "title": {
-        "th": "แนะนำผลิตภัณฑ์ รูปแบบการผลิตและขนส่ง",
-        "en": "We walk you through products, production and delivery",
-        "zh": "介绍产品、生产与配送方式",
-        "ja": "製品・製造・配送のご案内"
+        "th": "ปรึกษาและออกแบบฉลาก",
+        "en": "Consult & design",
+        "zh": "咨询与标签设计",
+        "ja": "ご相談・ラベルデザイン"
+      },
+      "desc": {
+        "th": "แนะนำสินค้าและการผลิต ออกแบบฉลากจนลูกค้ายืนยันแบบ พร้อมส่งใบเสนอราคา",
+        "en": "We walk you through the options, design the label until you approve it, and send a quotation",
+        "zh": "介绍产品与生产方式，设计标签至客户确认，并发送报价",
+        "ja": "製品・製造のご案内、ご承認までラベルをデザインし、お見積りを送付"
       }
     },
     {
-      "days": "2",
+      "days": "16",
       "title": {
-        "th": "ออกแบบฉลาก ลูกค้ายืนยันแบบ และส่งใบเสนอราคา",
-        "en": "Label design, your approval, and a quotation",
-        "zh": "设计标签，客户确认，发送报价",
-        "ja": "ラベルデザイン・ご承認・お見積り"
+        "th": "ชำระเงิน พิมพ์ฉลาก ขอ อย.",
+        "en": "Payment, printing & FDA",
+        "zh": "付款、印刷与 FDA 注册",
+        "ja": "お支払い・印刷・FDA申請"
+      },
+      "desc": {
+        "th": "ชำระค่าฉลาก แม่พิมพ์ และสินค้าล็อตแรก จากนั้นพิมพ์ฉลากพร้อมขอเลข อย.",
+        "en": "Pay for labels, plates and the first lot; labels are printed while we file for your FDA number",
+        "zh": "支付标签、印版及首批货款；印刷标签，同时代办食药局编号",
+        "ja": "ラベル・版・初回ロットをお支払い。ラベル印刷と並行してFDA番号を申請"
       }
     },
     {
-      "days": "1",
+      "days": "8",
       "title": {
-        "th": "ชำระค่าฉลาก แม่พิมพ์ และค่าสินค้าล็อตแรก",
-        "en": "Pay for labels, plates and the first lot",
-        "zh": "支付标签、印版及首批货款",
-        "ja": "ラベル・版・初回ロットのお支払い"
+        "th": "เตรียมขวด",
+        "en": "Bottle preparation",
+        "zh": "准备瓶子",
+        "ja": "ボトルの準備"
+      },
+      "desc": {
+        "th": "ส่งฉลากให้ผู้ผลิตขวด และรับขวดพร้อมบรรจุกลับมาที่โรงงาน",
+        "en": "Labels go to the bottle maker, and ready-to-fill bottles come back to our plant",
+        "zh": "标签送至瓶厂，可灌装的瓶子运回工厂",
+        "ja": "ラベルをボトルメーカーへ送り、充填可能なボトルが工場に到着"
       }
     },
     {
-      "days": "14",
+      "days": "3",
       "title": {
-        "th": "โรงพิมพ์ผลิตฉลาก พร้อมดำเนินการขอเลข อย.",
-        "en": "Labels are printed while we file for the FDA number",
-        "zh": "印刷标签，同时申请食药局编号",
-        "ja": "ラベル印刷とFDA番号の申請"
-      }
-    },
-    {
-      "days": "1",
-      "title": {
-        "th": "โรงพิมพ์ส่งมอบฉลากให้โรงงาน",
-        "en": "Printer delivers labels to our plant",
-        "zh": "印刷厂将标签交付工厂",
-        "ja": "印刷所から工場へラベル納品"
-      }
-    },
-    {
-      "days": "1",
-      "title": {
-        "th": "โรงงานส่งฉลากให้ผู้ผลิตขวด",
-        "en": "We send the labels to the bottle maker",
-        "zh": "工厂将标签送至瓶厂",
-        "ja": "ラベルをボトルメーカーへ"
-      }
-    },
-    {
-      "days": "7",
-      "title": {
-        "th": "ผู้ผลิตขวดส่งขวดพร้อมบรรจุให้โรงงาน",
-        "en": "Bottle maker delivers ready-to-fill bottles",
-        "zh": "瓶厂交付可灌装的瓶子",
-        "ja": "充填可能なボトルが工場に到着"
-      }
-    },
-    {
-      "days": "2",
-      "title": {
-        "th": "โรงงานผลิตน้ำดื่มแบรนด์ของท่าน",
-        "en": "We fill and pack your branded water",
-        "zh": "工厂生产您的品牌饮用水",
-        "ja": "あなたのブランドの飲料水を製造"
-      }
-    },
-    {
-      "days": "1",
-      "title": {
-        "th": "ส่งมอบน้ำดื่มถึงมือท่าน",
-        "en": "Delivered to your door",
-        "zh": "送货到您手中",
-        "ja": "お客様のもとへお届け"
+        "th": "ผลิตและส่งมอบ",
+        "en": "Fill & deliver",
+        "zh": "生产与交付",
+        "ja": "製造・お届け"
+      },
+      "desc": {
+        "th": "ผลิตน้ำดื่มแบรนด์ของท่าน แล้วจัดส่งถึงมือ",
+        "en": "We fill and pack your branded water and deliver it to you",
+        "zh": "生产您的品牌饮用水并送达",
+        "ja": "ブランド飲料水を製造し、お届けします"
       }
     }
   ],
