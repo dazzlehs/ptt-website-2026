@@ -35,6 +35,13 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--accent,#1AB1E7);
 
 /* ---- nav responsive ---- */
 [data-navlinks]{display:flex}
+/* 6 links + language + CTA: keep each label on one line and tighten the
+   spacing on narrower desktops so CJK labels don't wrap character by character */
+.nav-link,.lang-button,.nav-cta{white-space:nowrap}
+@media(max-width:1200px){
+  [data-navlinks]{gap:14px !important}
+  .nav-link{font-size:15px}
+}
 [data-menubtn]{display:none}
 /* grid items default to a min-width based on their content's min-content size;
    long unspaced Thai/CJK runs can push that past the viewport and force the
