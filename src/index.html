@@ -150,6 +150,8 @@
         <span class="nav-divider" aria-hidden="true"></span>
         <a class="nav-link" href="#standards">{{t:header.04}}</a>
         <span class="nav-divider" aria-hidden="true"></span>
+        <a class="nav-link" href="#oem">{{t:header.07}}</a>
+        <span class="nav-divider" aria-hidden="true"></span>
         <a class="nav-link" href="#contact">{{t:header.05}}</a>
       </nav>
       <div style="display:flex;align-items:center;gap:8px;margin-left:auto">
@@ -183,6 +185,7 @@
       <a class="mobile-nav-link" href="#process" onclick="closeMenu()">{{t:menu.03}}</a>
       <a class="mobile-nav-link" href="#standards" onclick="closeMenu()">{{t:menu.04}}</a>
       <a class="mobile-nav-link" href="#clients" onclick="closeMenu()">{{t:menu.05}}</a>
+      <a class="mobile-nav-link" href="#oem" onclick="closeMenu()">{{t:menu.08}}</a>
       <a class="mobile-nav-last" href="#contact" onclick="closeMenu()">{{t:menu.06}}</a>
       <a class="mobile-menu-cta" href="#quote" onclick="closeMenu()">{{t:menu.07}}</a>
     </div>
@@ -514,7 +517,7 @@
           {{#each oem.notes}}<li>{{t.text}}</li>{{/each}}
         </ul>
         <div class="oem-cta">
-          <a class="btn-primary" href="#quote" onclick="var s=document.getElementById('q-product');if(s)s.value='OEM / ติดแบรนด์'">{{t:oem.24}}</a>
+          <a class="btn-primary" href="#quote" onclick="var s=document.getElementById('q-product');if(s)s.value='{{th:quote.22}}'">{{t:oem.24}}</a>
           <span class="oem-cta-phone">{{t:oem.25}} <a href="tel:038595888">038-595-888</a></span>
         </div>
       </div>
@@ -575,10 +578,15 @@
           <div class="form-row" data-2col="">
             <label class="field"><span class="field-label">{{t:quote.11}}</span>
               <select class="field-select" id="q-product" name="สินค้าที่สนใจ">
-                <option>ถ้วย 220 ml</option><option>ขวด 350 ml</option><option>ขวด 600 ml</option><option>ขวด 1500 ml</option><option selected="">ถัง 18.9 L</option><option>OEM / ติดแบรนด์</option>
+                <option value="{{th:quote.17}}" {{a:quote.17}}>{{th:quote.17}}</option>
+                <option value="{{th:quote.18}}" {{a:quote.18}}>{{th:quote.18}}</option>
+                <option value="{{th:quote.19}}" {{a:quote.19}}>{{th:quote.19}}</option>
+                <option value="{{th:quote.20}}" {{a:quote.20}}>{{th:quote.20}}</option>
+                <option value="{{th:quote.21}}" {{a:quote.21}} selected="">{{th:quote.21}}</option>
+                <option value="{{th:quote.22}}" {{a:quote.22}}>{{th:quote.22}}</option>
               </select>
             </label>
-            <label class="field"><span class="field-label">{{t:quote.12}}</span><input class="field-input" id="q-volume" name="ปริมาณต่อเดือน (โดยประมาณ)" type="text" placeholder="เช่น 500 แพ็ค / 100 ถัง"></label>
+            <label class="field"><span class="field-label">{{t:quote.12}}</span><input class="field-input" id="q-volume" name="ปริมาณต่อเดือน (โดยประมาณ)" type="text" placeholder="{{th:quote.23}}" {{a:quote.23}}></label>
           </div>
           <label class="field"><span class="field-label">{{t:quote.13}}</span><textarea class="field-textarea" id="q-address" name="ที่อยู่จัดส่ง" rows="2"></textarea></label>
           <button class="btn-submit" id="quote-submit-btn" type="submit">{{t:quote.14}}</button>

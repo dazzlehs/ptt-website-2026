@@ -62,6 +62,15 @@ collections:
             - { name: en, label: "English", widget: string, required: true }
             - { name: zh, label: "中文", widget: string, required: true }
             - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "07"
+          label: "น้ำดื่ม OEM"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
         - name: "05"
           label: "ติดต่อ"
           widget: object
@@ -123,6 +132,15 @@ collections:
             - { name: ja, label: "日本語", widget: string, required: true }
         - name: "05"
           label: "ลูกค้าของเรา"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "08"
+          label: "น้ำดื่ม OEM"
           widget: object
           collapsed: true
           fields:
@@ -782,6 +800,69 @@ collections:
             - { name: ja, label: "日本語", widget: text, required: true }
         - name: "16"
           label: "ข้อมูลของคุณจะถูกเก็บเป็นความลับ ใช้เพื่อก…"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "17"
+          label: "ตัวเลือกสินค้า: ถ้วย 220 ml"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "18"
+          label: "ตัวเลือกสินค้า: ขวด 350 ml"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "19"
+          label: "ตัวเลือกสินค้า: ขวด 600 ml"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "20"
+          label: "ตัวเลือกสินค้า: ขวด 1500 ml"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "21"
+          label: "ตัวเลือกสินค้า: ถัง 18.9 L"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "22"
+          label: "ตัวเลือกสินค้า: OEM"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: th, label: "ไทย", widget: string, required: true }
+            - { name: en, label: "English", widget: string, required: true }
+            - { name: zh, label: "中文", widget: string, required: true }
+            - { name: ja, label: "日本語", widget: string, required: true }
+        - name: "23"
+          label: "ตัวอย่างในช่องปริมาณต่อเดือน"
           widget: object
           collapsed: true
           fields:

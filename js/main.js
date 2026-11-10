@@ -22,6 +22,15 @@
     langLabelEl.textContent = LANG_LABELS[lang];
     document.title = lang === 'th' ? TITLE_TH : TITLE_OTHER;
     try { localStorage.setItem('ptt-lang', lang); } catch (e) {}
+    // <option> labels and placeholders can't hold per-language spans, so
+    // build.mjs puts each language in a data-i18n-<lang> attribute instead.
+    // Option values stay Thai so the emailed form reads the same in any language.
+    var els = document.querySelectorAll('[data-i18n-' + lang + ']');
+    for (var i = 0; i < els.length; i++) {
+      var v = els[i].getAttribute('data-i18n-' + lang);
+      if (els[i].tagName === 'OPTION') els[i].textContent = v;
+      else els[i].setAttribute('placeholder', v);
+    }
     closeLangMenu();
   }
 

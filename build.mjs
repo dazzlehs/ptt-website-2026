@@ -89,8 +89,27 @@ const ASSET_VERSIONS = { 'css/style.css': assetVersion('css/style.css'), 'js/mai
 const versionAssets = (html) =>
   html.replace(/((?:href|src)="\/?)(css\/style\.css|js\/main\.js)"/g, (_, pre, p) => `${pre}${p}?v=${ASSET_VERSIONS[p]}"`);
 
+// For text that lives in an attribute or an <option> (which can't hold the
+// per-language <span>s): {{th:key}} is the escaped Thai text, and {{a:key}}
+// emits data-i18n-<lang> attributes that js/main.js swaps in on language change.
+function renderAttrs(key) {
+  const value = content[key];
+  if (!value) throw new Error(`build: no content for {{a:${key}}}`);
+  return LANGS.map((lang) => {
+    if (value[lang] === undefined) throw new Error(`build: ${key} is missing "${lang}"`);
+    return `data-i18n-${lang}="${escapeHTML(value[lang])}"`;
+  }).join(' ');
+}
+function renderThai(key) {
+  const value = content[key];
+  if (!value?.th) throw new Error(`build: no Thai content for {{th:${key}}}`);
+  return escapeHTML(value.th);
+}
+
 function render(template, label) {
   const out = versionAssets(template)
+    .replace(/\{\{a:([\w.]+)\}\}/g, (_, key) => renderAttrs(key))
+    .replace(/\{\{th:([\w.]+)\}\}/g, (_, key) => renderThai(key))
     .replace(/\{\{#each ([\w.]+)\}\}([\s\S]*?)\{\{\/each\}\}/g, (_, listPath, body) => renderEach(listPath, body))
     .replace(/\{\{t:([\w.]+)\}\}/g, (_, key) => renderGroup(key));
   const unresolved = out.match(/\{\{[^}]*\}\}/g);
