@@ -885,7 +885,7 @@ collections:
             - { name: zh, label: "中文", widget: string, required: true }
             - { name: ja, label: "日本語", widget: string, required: true }
         - name: "02"
-          label: "เราพร้อมให้บริการท่าน"
+          label: "เราพร้อมให้บริการคุณ"
           widget: object
           collapsed: true
           fields:
@@ -1085,7 +1085,7 @@ collections:
             - { name: zh, label: "中文", widget: string, required: true }
             - { name: ja, label: "日本語", widget: string, required: true }
         - name: "02"
-          label: "ข้อความ 02: น้ำดื่มในแบรนด์ของท่าน"
+          label: "ข้อความ 02: น้ำดื่มในแบรนด์ของคุณ"
           widget: object
           collapsed: true
           fields:
@@ -1094,7 +1094,7 @@ collections:
             - { name: zh, label: "中文", widget: string, required: true }
             - { name: ja, label: "日本語", widget: string, required: true }
         - name: "03"
-          label: "ข้อความ 03: ทุกขวดที่ลูกค้าหยิบขึ้นมาดื่มคือโอกาสให้แบรนด์ของท่านถูกจดจำ เราดูแลให้ครบตั้งแต่ออกแบบฉลาก ขอเลข อย. จนผลิตและส่งถึงมือ โดยท่านไม่ต้องลงทุนเครื่องจักรเอง"
+          label: "ข้อความ 03: ทุกขวดที่ลูกค้าหยิบขึ้นมาดื่มคือโอกาสให้แบรนด์ของคุณถูกจดจำ เราดูแลให้ครบตั้งแต่ออกแบบฉลาก ขอเลข อย. จนผลิตและส่งถึงมือ โดยคุณไม่ต้องลงทุนเครื่องจักรเอง"
           widget: object
           collapsed: true
           fields:
@@ -1256,7 +1256,7 @@ collections:
             - { name: zh, label: "中文", widget: string, required: true }
             - { name: ja, label: "日本語", widget: string, required: true }
         - name: "21"
-          label: "ข้อความ 21: 9 ขั้นตอน ได้น้ำดื่มแบรนด์ท่านใน 30 วัน"
+          label: "ข้อความ 21: 9 ขั้นตอน ได้น้ำดื่มแบรนด์ของคุณใน 30 วัน"
           widget: object
           collapsed: true
           fields:
